@@ -1,4 +1,4 @@
-# card
+# StellaStuff.Design
 my main online buisness card!
 
-i hope i didnt dox myself!
+this serves as an online portfolio for my creations!
