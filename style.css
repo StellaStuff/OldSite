@@ -1,52 +1,82 @@
+body {
+    padding-top: 5em;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 1em;
+}
+
+/*****************************************************header stuff****************************************************************************/
 /* Style the header with a grey background and some padding */
 .header {
     overflow: hidden;
     text-align: center;
-        margin: auto;
-    background-color: #f1f1f1;
+    background-color: #f1f1f1dd;
     width: 100%;
     position: fixed;
     top: 0;
+    left: 0;
+    right 0;
 }
 
-/* Style the header links */
-.header a {
-    padding: 1em;
-    padding-bottom: 2em;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1em;
-  line-height: 2.2em;
-  border-radius: 1em;
-}
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
-  font-size: 2em;
-  font-weight: bold;
+.header-down {
+    height: 2em;
 }
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  background-color: #ddd;
+  background-color: #bbbbbb;
   color: black;
 }
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: dodgerblue;
+  background-color: #7099ff;
   color: white;
 }
 
-/* Float the link section to the right */
-.header-right {
-
-    width: auto;
-    padding: inherit;
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+    background-color: #00000000;
+    line-height: 150%;
+    display: inline;
+    font-size: 2em;
+    font-family: 'Righteous', cursive;
 }
 
+/* Style the header links */
+.header a {
+    background-color: #dddddd;
+    width:15%; 
+    display:inline-block;
+    margin: 2%;
+    margin-bottom: 0;
+    margin-top: 0em;
+    padding-top: 0.5em;
+    padding-bottom: 3em;
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 2em;
+}
+/*****************************************************end of header stuff******************************************************************/
 
-.content {
-    margin-top: 10em;
+.footer {
+    padding: 0em;
+    text-align: center;
+    bottom: 0;
+    
+}
+
+@media only screen and (max-width: 50em) {
+    .content {
+        padding-top: 5.5em; 
+        text-align: center;
+    }
+    .header-right {
+        width: auto;
+        height: 3em;
+    }
+    .header a {
+        margin: 0;
+        width:17%;
+    }
 }
