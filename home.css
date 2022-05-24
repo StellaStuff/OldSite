@@ -1,19 +1,25 @@
 #portrait {
     min-width: 10em;
-    width: 60%;
+    width: 50%;
     
     float: right;
     padding: 2em;
     padding-top: 0;
     padding-right: 0;
 }
-body {
-    padding-bottom: 20em;
+
+.text {
+    width: 45%;
+    float: left;
 }
 
 @media only screen and (max-width: 50em) {
     #portrait {
         padding-bottom: 0em;
         display: none;
+    }
+    .text {
+        width: auto;
+        float: none;
     }
 }

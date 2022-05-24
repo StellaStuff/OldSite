@@ -1,23 +1,34 @@
-body {
+body { /* setting the font and spacing on the main body*/
     padding-top: 5em;
     font-family: 'Roboto Condensed', sans-serif;
     margin: 1em;
+    font-size: 1.25em;
+    overflow: scroll;
+    
+
 }
+
+.content {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 
 /*****************************************************header stuff****************************************************************************/
 /* Style the header with a grey background and some padding */
 .header {
-    overflow: hidden;
-    text-align: center;
+    overflow: hidden; /* makes sure there isnt a scroll bar on the header */
+    text-align: center; /*centers the text*/
     background-color: #f1f1f1dd;
-    width: 100%;
-    position: fixed;
+    width: 100%; /*makes the header take up the whole width of the screen*/
+    position: fixed; /*locks the header at the top of the screen*/
     top: 0;
     left: 0;
     right 0;
 }
 
-.header-down {
+.header-down { /*specifys the height of the navigation buttons*/
     height: 2em;
 }
 
@@ -45,9 +56,9 @@ body {
 /* Style the header links */
 .header a {
     background-color: #dddddd;
-    width:15%; 
-    display:inline-block;
-    margin: 2%;
+    width:15%; /* width of the buttons */
+    display:inline-block; /* makes them blocks so we can give them equal spacing regardless of text length */
+    margin: 2%; /* space between buttons */
     margin-bottom: 0;
     margin-top: 0em;
     padding-top: 0.5em;
@@ -60,20 +71,16 @@ body {
 /*****************************************************end of header stuff******************************************************************/
 
 .footer {
-    padding: 0em;
     text-align: center;
-    bottom: 0;
-    
 }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 50em) { /*responsive effects for smaller screens*/
     .content {
         padding-top: 5.5em; 
         text-align: center;
     }
-    .header-right {
-        width: auto;
-        height: 3em;
+    .header-down {
+        height: 3em; /* gives the header buttons enough room to breath when viewed on a small screen */
     }
     .header a {
         margin: 0;
