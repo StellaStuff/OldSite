@@ -14,6 +14,10 @@ body { /* setting the font and spacing on the main body*/
     display: table;
 }
 
+.box {
+    background: #dddddd;
+    border-radius: 2em;
+}
 
 /*****************************************************header stuff****************************************************************************/
 /* Style the header with a grey background and some padding */
@@ -76,7 +80,6 @@ body { /* setting the font and spacing on the main body*/
 
 @media only screen and (max-width: 50em) { /*responsive effects for smaller screens*/
     .content {
-        padding-top: 5.5em; 
         text-align: center;
     }
     .header-down {

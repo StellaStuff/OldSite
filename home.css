@@ -13,12 +13,35 @@
     float: left;
 }
 
+.guestbook {
+    padding: 2em;
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#guestbookborder {
+    width: 50%;
+    float: right;
+}
+
+.input {
+    float: left;
+    content: "";
+    clear: both;
+    display: table;
+}
+
 @media only screen and (max-width: 50em) {
     #portrait {
         padding-bottom: 0em;
         display: none;
     }
     .text {
+        width: auto;
+        float: none;
+    }
+    .guestbook {
         width: auto;
         float: none;
     }
