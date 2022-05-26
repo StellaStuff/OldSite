@@ -1,89 +1,192 @@
 body { /* setting the font and spacing on the main body*/
-    padding-top: 5em;
     font-family: 'Roboto Condensed', sans-serif;
-    margin: 1em;
+    margin: 0;
     font-size: 1.25em;
     overflow: scroll;
-    
+    overflow-x:hidden
+}
 
+button {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .content {
-    content: "";
-    clear: both;
-    display: table;
+    margin: 1em;
+    padding-top: 8em;
+    
 }
 
+iframe {
+    width: 100%;
+    display: block;
+    border: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+/*///////////////////audio player stuff///////////////////////////*/
+.song {
+    float: right;
+}
+.songbox {
+    width: 40%;
+    float: left;
+}
+
+.audioPlayer {
+    float: right;
+    background-color: white;
+    border-radius: 1em;
+    width: 20em;
+    padding: 0.25em;
+    margin-right: 1em;
+}
+
+.playPauseButton {
+    float: left;
+    border-color: #0000;
+    background-color: #0000;
+    font-size: 2.5em;
+    width: 1.25em;
+    line-height:1.1em;
+    padding: 0;
+    overflow: show;
+}
+
+.seeker {
+    width: 100%;
+}
+
+.progressbar {
+
+    width: 75%;
+    float: right;
+    padding-right: 1em;
+}
+
+.progressbar p {
+    font-size: 0.75em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.box {
+    background: #dddddd;
+    border-radius: 2em;
+}
+/*///////////////////end of audio player stuff///////////////////////////*/
 
 /*****************************************************header stuff****************************************************************************/
 /* Style the header with a grey background and some padding */
 .header {
-    overflow: hidden; /* makes sure there isnt a scroll bar on the header */
+    overflow: visible; /* makes sure there isnt a scroll bar on the header */
     text-align: center; /*centers the text*/
     background-color: #f1f1f1dd;
+    
     width: 100%; /*makes the header take up the whole width of the screen*/
     position: fixed; /*locks the header at the top of the screen*/
     top: 0;
     left: 0;
     right 0;
+
 }
 
 .header-down { /*specifys the height of the navigation buttons*/
-    height: 2em;
+    padding-top: 1em;
+}
+
+.header-up {
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+    padding-top: 1em;
 }
 
 /* Change the background color on mouse-over */
-.header a:hover {
+.tabs:hover {
   background-color: #bbbbbb;
   color: black;
 }
 
 /* Style the active/current link*/
-.header a.active {
+.tabs.active {
   background-color: #7099ff;
   color: white;
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
+.logo {
+    padding: 0;
+    margin: 0;
+    float: left;
     background-color: #00000000;
-    line-height: 150%;
+    color: black;
+    text-decoration: none;
+    line-height: 1.4em;
     display: inline;
     font-size: 2em;
     font-family: 'Righteous', cursive;
+    margin-left: 0.5em;
 }
 
 /* Style the header links */
-.header a {
+.tabs {
+    border: none;
     background-color: #dddddd;
     width:15%; /* width of the buttons */
     display:inline-block; /* makes them blocks so we can give them equal spacing regardless of text length */
-    margin: 2%; /* space between buttons */
+    margin: 1%; /* space between buttons */
     margin-bottom: 0;
-    margin-top: 0em;
-    padding-top: 0.5em;
-    padding-bottom: 3em;
+    margin-top: 0;
+    padding: 0.25em;
     color: black;
     text-decoration: none;
     font-size: 1em;
-    border-radius: 2em;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
 }
 /*****************************************************end of header stuff******************************************************************/
 
-.footer {
+.footer p {
     text-align: center;
+    margin: 0;
+}
+
+.footer {
+    margin: 1em;
 }
 
 @media only screen and (max-width: 50em) { /*responsive effects for smaller screens*/
-    .content {
-        padding-top: 5.5em; 
+    .audioPlayer {
+        float: none;
+        width: 80%;
+        margin: auto;
+        display: table;
+    }
+    
+    .progressbar p {
+        font-size: 1em;
         text-align: center;
+        padding: 0;
     }
-    .header-down {
-        height: 3em; /* gives the header buttons enough room to breath when viewed on a small screen */
+    
+    .content{
+        padding-top: 0;
     }
-    .header a {
-        margin: 0;
-        width:17%;
+    
+    .header {
+        position: relative; /*locks the header at the top of the screen*/
+    }
+    
+    .logo {
+        padding: 0;
+        
+        float: none;
+        display: inline;
+        font-size: 2em;
+        font-family: 'Righteous', cursive;
     }
 }
