@@ -15,48 +15,36 @@
 
 
 <body>
-    <header-component></header-component>
-    <div class="content">
-        <img id="portrait" src="test.jpg" alt="a test image">
-        <div class="text">
-            <h1>Hello World !!!</h1>
-            <p>
-                My name is Stella Wood, although you may know me as <a href="https://twitter.com/StellaFoxxie">@StellaFoxxie</a>. I'm a huge nerd with a website!
-            </p>
-            <p>
-                This site is intended as a business card of sorts. It’s something I can show to potential employers to show off what I can do. If you are a fan of my games or music, I suggest you follow me on <a href="stellafoxxie.itch.io">itch.io</a> or <a href="https://soundcloud.com/stellafoxxie">soundcloud</a>, as that is where most of my art ends up.
-            </p>
-            <p>
-                If you are a potential employer then I want you to know that I am ADDICTED to problem solving. I could never work a job where fucking around and finding out wasn't a major part of my everyday workflow; as every part of the process is a chance to learn new skills and develop old ones. I have found that I learn best on the job; on the fly. Most if not all of my skills are developed from just making things, whether that be making music, games, or even this website. 
-            </p>
-            <p>
-                The most important skill I have though, is using the internet. The internet has taught me more than any school ever has; and I can confidently say that I would have never been able to make any of the things showcased here without it.
-            </p>
-            <p>
-                One of my biggest dreams is to be a musician and/or lead programmer on a video game development team. programming and composing music are my two favorite things! I’d also love to work in the field of web design (I made this website after all!). The programming language I’m most familiar with is JavaScript, it’s what most of the games and demos showcased run on; But I also have some experience with c++, c#, and Java; as well as game development environments such as Unity and Godot.
-            </p>
-            <p>
-                If you would like to request a resume, or to just say hi, then you can shoot me an email at <a href="mailto:stellastuffs@gmail.com">StellaStuffs@gmail.com </a>
-            </p>
-            <p>
-                I’d love to hear from you!
-            </p>
-        </div>
-        <div class= "box" id="guestbookborder">
-            <div class="guestbook">
-                <div class="input">
-                    <h2>guestbook</h2>
-                    <form action="/action_page.php">
-                      <label for="name">Name</label><br>
-                      <input type="text" id="fname" name="fname"><br>
-                      <label for="comment">Comment:</label><br>
-                      <textarea name="comment" rows="5" cols="20"></textarea><br><br>
-                      <input type="submit" value="Submit">
-                    </form>
+    <div class="header">
+        <div class="header-up">
+            <a href="index.html" class="logo">StellaStuff.Design</a>
+            <div class="audioPlayer">
+                <audio id="test">
+                    <source src="test.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <input type="button" class="playPauseButton" onclick="musicPlayer.playPause(0)" value="▶️">
+                <div class="progressbar">
+                    <p>test test by test</p>
+                    <input type="range" class="seeker" oninput="musicPlayer.seek(0)" value="0">
+                    <p class="time">I am broken!</p>
                 </div>
             </div>
         </div>
+        <div class="header-down">
+            <a class="active">Home</a>
+            <a href="music.html">Music</a>   
+            <a href="#aaw">Games &amp; Demos</a>
+            <a href="#a">Art &amp; Photography</a>
+            <a href="contact">Contact</a>
+        </div>
+
     </div>
+    
+    <div class="content">
+        
+    </div>
+    
     <div class="footer">
     <p>&copy; <script>document.write( new Date().getFullYear() );</script> Stella Wood</p>
     </div>
