@@ -5,48 +5,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <script src="header.js"></script>
-    
-    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="style.css">
     
 </head>
 
-
-
 <body>
     <div class="header">
         <div class="header-up">
-            <a href="index.html" class="logo">StellaStuff.Design</a>
+            <p href="index.html" class="logo">StellaStuff.Design</p>
             <div class="audioPlayer">
-                <audio id="test">
-                    <source src="test.mp3" type="audio/mpeg">
+                <audio id="header-player">
+                    <source src="" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
-                <input type="button" class="playPauseButton" onclick="musicPlayer.playPause(0)" value="▶️">
+                <input type="button" class="playPauseButton" id="header-playPauseButton" onclick="musicPlayer.playPause()" value="▶️">
                 <div class="progressbar">
-                    <p>test test by test</p>
-                    <input type="range" class="seeker" oninput="musicPlayer.seek(0)" value="0">
-                    <p class="time">I am broken!</p>
+                    <p id="header-title-bar">I am broken!</p>
+                    <input type="range" class="seeker" id="header-seeker" oninput="musicPlayer.seek()" value="0">
+                    <p class="time" id="header-time">I am broken!</p>
                 </div>
             </div>
         </div>
         <div class="header-down">
-            <a class="active">Home</a>
-            <a href="music.html">Music</a>   
-            <a href="#aaw">Games &amp; Demos</a>
-            <a href="#a">Art &amp; Photography</a>
-            <a href="contact">Contact</a>
+            <p class="tabs active"  id="home"   onclick="changePage('home');">Home</p> 
+            <p class="tabs"         id="music"  onclick="changePage('music');">music</p>
+            <p class="tabs"         id="games"  onclick="changePage('games');">Games &amp; Demos</p>
+            <p class="tabs"         id="art"    onclick="changePage('art');">Art &amp; Photography</p>
+            <p class="tabs"         id="contact"onclick="changePage('contact');">Contact</p>
         </div>
 
     </div>
     
-    <div class="content">
-        
-    </div>
+    <iframe src="home.html" scrolling="no"></iframe>
+    
+    <script> //mini script that makes the iframe more seamless by dynamically changing the height
+        // Selecting the iframe element
+        var iframe = document.getElementsByTagName("iframe")[0];
+
+        // Adjusting the iframe height onload event
+        iframe.onload = function(){
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
     
     <div class="footer">
-    <p>&copy; <script>document.write( new Date().getFullYear() );</script> Stella Wood</p>
+        <p>&copy; <script>document.write( new Date().getFullYear() );</script> Stella Wood</p>
+        <p>all rights reserved</p>
     </div>
 </body>
+
+<foot>
+    <script src="index.js"></script>
+</foot>
 

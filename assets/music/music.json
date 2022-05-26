@@ -1,0 +1,28 @@
+{
+    "songs":{
+        "test":{
+            "name":"test",
+            "artist":"StellaFoxxie",
+            "from":"the test folder",
+            "src":"/assets/music/test.mp3",
+            "artsrc":"/assets/images/testAlbum.png",
+            "blerb":"i dunno its a test song"
+        },
+        "testTWO":{
+            "name":"test TWO",
+            "artist":"StellaFoxxie",
+            "from":"the test folder",
+            "src":"/assets/music/test.mp3",
+            "artsrc":"/assets/images/testAlbum.png",
+            "blerb":"i dunno its a test song"
+        },
+        "testTHREE":{
+            "name":"test THREEEEEEEEEE",
+            "artist":"StellaFoxxie",
+            "from":"the test folder",
+            "src":"/assets/music/test2.mp3",
+            "artsrc":"/assets/images/testAlbum.png",
+            "blerb":"i dunno its a test song"
+        }
+    }
+}
