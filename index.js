@@ -59,6 +59,12 @@ class MusicPlayer { //main music player for the header
         }
         this.player.currentTime = this.seeker.value; //actually sets the player position when you seek
     }
+    getPlaylist() {
+        return this.playlist;   
+    }
+    getNowPlaying() {
+        return this.nowPlaying;
+    }
 }
 
 function changePage(Page, noPush, noRefresh) {
@@ -82,21 +88,36 @@ function changePage(Page, noPush, noRefresh) {
     if (!noRefresh && noPush) {
         history.replaceState(Page, '', "?" + Page);
     }
+    
     //console.log(state);
     page = Page;
 }
+
+function resizeIframe() {
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+}
+
 //////////end of classes & large functions////////}
 preload(setup); ////pulls the script up by its bootstraps
 
 
 var page = "home";
-let musicData, gameData, musicPlayer;
+let musicData, gameData, musicPlayer, iframe;
 
 
 async function preload(callback) {
     musicData = await fetch("assets/music/music.json").then(response => {return response.json();});
     //gameData = await fetch("assets/p5games/games.json").then(response => {return response.json();});
     musicPlayer = new MusicPlayer();
+    
+    
+    iframe = document.getElementById("main-iframe");
+    iframe.onload = function () {
+        resizeIframe();
+        if (page == "music") {
+            iframe.contentWindow.takeData(musicPlayer.nowPlaying,musicPlayer.playlist);
+        }
+    }
     if (callback != undefined) callback();
 }
 
@@ -110,6 +131,7 @@ function setup() {
 function tick() {
     musicPlayer.update(); //runs the update function 20 times a second
 }
+
 
 addEventListener('popstate', event => {
     if (history.state != null && history.state != page) changePage(history.state,true,true);
