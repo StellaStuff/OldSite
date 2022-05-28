@@ -6,7 +6,8 @@
             "from":"the test folder",
             "src":"/assets/music/test.mp3",
             "artsrc":"/assets/images/testAlbum.png",
-            "blerb":"i dunno its a test song"
+            "blerb":"i dunno its a test song",
+            "duration":71
         },
         "testTWO":{
             "name":"test TWO",
@@ -14,7 +15,8 @@
             "from":"the test folder",
             "src":"/assets/music/test.mp3",
             "artsrc":"/assets/images/testAlbum.png",
-            "blerb":"i dunno its a test song"
+            "blerb":"i dunno its a test song",
+            "duration":71
         },
         "testTHREE":{
             "name":"test THREEEEEEEEEE",
@@ -22,7 +24,8 @@
             "from":"the test folder",
             "src":"/assets/music/test2.mp3",
             "artsrc":"/assets/images/testAlbum.png",
-            "blerb":"i dunno its a test song"
+            "blerb":"i dunno its a test song",
+            "duration":85
         }
     }
 }

@@ -36,6 +36,25 @@ class MusicPlayer { //main music player for the header
             this.pause();
         }
     }
+    next() {
+        if(this.nowPlaying < this.playlist.length) {
+            this.load(this.nowPlaying + 1);   
+            this.play();
+            if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+                iframe.contentWindow.songboxes[this.nowPlaying - 1].playButton.value = "▶️";
+            }
+        }
+
+    }
+    back() {
+        if(this.nowPlaying > 0) {
+            this.load(this.nowPlaying - 1);   
+            this.play();
+            if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+                iframe.contentWindow.songboxes[this.nowPlaying + 1].playButton.value = "▶️";
+            }
+        }
+    }
     update() {
         ///generates the text saying how much time is remaining
         this.time.innerHTML = 
@@ -47,9 +66,16 @@ class MusicPlayer { //main music player for the header
             if (this.playlist[this.nowPlaying+1] != undefined) {
                 this.load(this.nowPlaying + 1);
                 this.play();
+                if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+                    iframe.contentWindow.songboxes[this.nowPlaying - 1].playButton.value = "▶️";
+                }
             } else {
                 this.pause();
             }
+        }
+        
+        if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+            iframe.contentWindow.songboxes[this.nowPlaying].update(this.player.currentTime);
         }
     }
     seek() {
@@ -58,6 +84,12 @@ class MusicPlayer { //main music player for the header
             this.seeker.initialized = true;
         }
         this.player.currentTime = this.seeker.value; //actually sets the player position when you seek
+    }
+    getPlaylist() {
+        return this.playlist;   
+    }
+    getNowPlaying() {
+        return this.nowPlaying;
     }
 }
 
@@ -82,21 +114,33 @@ function changePage(Page, noPush, noRefresh) {
     if (!noRefresh && noPush) {
         history.replaceState(Page, '', "?" + Page);
     }
+    
     //console.log(state);
     page = Page;
 }
+
+function resizeIframe() {
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+}
+
 //////////end of classes & large functions////////}
 preload(setup); ////pulls the script up by its bootstraps
 
 
 var page = "home";
-let musicData, gameData, musicPlayer;
+var musicData, gameData, musicPlayer, iframe;
 
 
 async function preload(callback) {
     musicData = await fetch("assets/music/music.json").then(response => {return response.json();});
     //gameData = await fetch("assets/p5games/games.json").then(response => {return response.json();});
     musicPlayer = new MusicPlayer();
+    
+    
+    iframe = document.getElementById("main-iframe");
+    iframe.onload = function () {
+        resizeIframe();
+    }
     if (callback != undefined) callback();
 }
 
@@ -110,6 +154,7 @@ function setup() {
 function tick() {
     musicPlayer.update(); //runs the update function 20 times a second
 }
+
 
 addEventListener('popstate', event => {
     if (history.state != null && history.state != page) changePage(history.state,true,true);

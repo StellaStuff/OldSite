@@ -18,11 +18,16 @@
                     <source src="" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
-                <input type="button" class="playPauseButton" id="header-playPauseButton" onclick="musicPlayer.playPause()" value="▶️">
+                
                 <div class="progressbar">
                     <p id="header-title-bar">I am broken!</p>
                     <input type="range" class="seeker" id="header-seeker" oninput="musicPlayer.seek()" value="0">
+                    <input type="button" class="playPauseButton" id="header-playPauseButton" onclick="musicPlayer.playPause()" value="▶️">
+                    <input type="button" class="playPauseButton" id="header-backButton" onclick="musicPlayer.back()" value="⏮️">
                     <p class="time" id="header-time">I am broken!</p>
+                    <input type="button" class="playPauseButton" id="header-nextButton" onclick="musicPlayer.next()" value="⏭️">
+                    <input type="button" class="playPauseButton" id="header-nextButton" onclick="musicPlayer.shuffle()" value="🔀">
+                    
                 </div>
             </div>
         </div>
@@ -31,22 +36,11 @@
             <p class="tabs"         id="music"  onclick="changePage('music');">music</p>
             <p class="tabs"         id="games"  onclick="changePage('games');">Games &amp; Demos</p>
             <p class="tabs"         id="art"    onclick="changePage('art');">Art &amp; Photography</p>
-            <p class="tabs"         id="contact"onclick="changePage('contact');">Contact</p>
         </div>
 
     </div>
     
-    <iframe src="home.html" scrolling="no"></iframe>
-    
-    <script> //mini script that makes the iframe more seamless by dynamically changing the height
-        // Selecting the iframe element
-        var iframe = document.getElementsByTagName("iframe")[0];
-
-        // Adjusting the iframe height onload event
-        iframe.onload = function(){
-            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-        }
-    </script>
+    <iframe src="home.html" id="main-iframe" name="iframe" scrolling="no"></iframe>
     
     <div class="footer">
         <p>&copy; <script>document.write( new Date().getFullYear() );</script> Stella Wood</p>
