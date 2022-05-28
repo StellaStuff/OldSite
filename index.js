@@ -36,6 +36,25 @@ class MusicPlayer { //main music player for the header
             this.pause();
         }
     }
+    next() {
+        if(this.nowPlaying < this.playlist.length) {
+            this.load(this.nowPlaying + 1);   
+            this.play();
+            if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+                iframe.contentWindow.songboxes[this.nowPlaying - 1].playButton.value = "▶️";
+            }
+        }
+
+    }
+    back() {
+        if(this.nowPlaying > 0) {
+            this.load(this.nowPlaying - 1);   
+            this.play();
+            if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+                iframe.contentWindow.songboxes[this.nowPlaying + 1].playButton.value = "▶️";
+            }
+        }
+    }
     update() {
         ///generates the text saying how much time is remaining
         this.time.innerHTML = 
@@ -47,9 +66,16 @@ class MusicPlayer { //main music player for the header
             if (this.playlist[this.nowPlaying+1] != undefined) {
                 this.load(this.nowPlaying + 1);
                 this.play();
+                if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+                    iframe.contentWindow.songboxes[this.nowPlaying - 1].playButton.value = "▶️";
+                }
             } else {
                 this.pause();
             }
+        }
+        
+        if(page == "music" && iframe.contentWindow.songboxes != undefined) {
+            iframe.contentWindow.songboxes[this.nowPlaying].update(this.player.currentTime);
         }
     }
     seek() {
@@ -102,7 +128,7 @@ preload(setup); ////pulls the script up by its bootstraps
 
 
 var page = "home";
-let musicData, gameData, musicPlayer, iframe;
+var musicData, gameData, musicPlayer, iframe;
 
 
 async function preload(callback) {
@@ -114,9 +140,6 @@ async function preload(callback) {
     iframe = document.getElementById("main-iframe");
     iframe.onload = function () {
         resizeIframe();
-        if (page == "music") {
-            iframe.contentWindow.takeData(musicPlayer.nowPlaying,musicPlayer.playlist);
-        }
     }
     if (callback != undefined) callback();
 }
