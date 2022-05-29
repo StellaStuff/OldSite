@@ -24,6 +24,7 @@ class MusicPlayer { //main music player for the header
         this.player.setAttribute("src",this.playlist[songId].src)
         this.title.innerHTML = this.playlist[songId].name;
         this.nowPlaying = songId;
+        if (this.seeker != undefined) this.seeker.max = this.playlist[songId].duration;
     }
     
     play() {
@@ -42,7 +43,8 @@ class MusicPlayer { //main music player for the header
         }
     }
     next() {
-        if(this.nowPlaying < this.playlist.length) {
+        if(this.nowPlaying < this.playlist.length - 1) {
+            console.log(this.nowPlaying, this.playlist.length);
             this.load(this.nowPlaying + 1);   
             this.play();
             if(page == "music" && iframe.contentWindow.songboxes != undefined) {

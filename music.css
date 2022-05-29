@@ -3,13 +3,13 @@ body {
 }
 
 .box {
-    padding: 1em;
+    padding: 3%;
     margin: 1%;
     content: "";
     clear: both;
     display: inline-block;
     float: none;
-    width: 40%;
+    width: 41%;
 }
 .box h2{
     margin: 0;
@@ -43,7 +43,7 @@ body {
 .sideButton {
     width: 5%;
     padding: 2%;
-    font-weight: normal;
+    font-weight: lighter;
     display: inline-block;
 }
 .progressbar {
