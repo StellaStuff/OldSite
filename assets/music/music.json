@@ -1,31 +1,85 @@
 {
     "songs":{
-        "test":{
-            "name":"test",
+        "Portland":{
+            "name":"Portland (Concrete Jungle)",
             "artist":"StellaFoxxie",
-            "from":"the test folder",
-            "src":"/assets/music/test.mp3",
-            "artsrc":"/assets/images/testAlbum.png",
-            "blerb":"i dunno its a test song",
+            "from":"Screech Synthesizer EP",
+            "src":"/assets/music/Screech Synthesizer/Portland (Concrete Jungle).mp3",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"This was the first song i made for the Screech Synthesizer EP. It was inspired by some of crosswalks in the town my aunt lives in.",
+            "duration":173
+        },
+        "DogDog":{
+            "name":"DogDog",
+            "artist":"StellaFoxxie",
+            "from":"Screech Synthesizer EP",
+            "src":"/assets/music/Screech Synthesizer/DogDog.mp3",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"This song is largly made up from samples of a speech synthesizer released for the commodore 64 called 'S.A.M.'. I love its' sound, it sounds exactly how a robot should.",
+            "duration":184
+        },
+        "Screech Synthesizer":{
+            "name":"Screech Synthesizer",
+            "artist":"StellaFoxxie",
+            "from":"Screech Synthesizer EP",
+            "src":"/assets/music/Screech Synthesizer/Screech Synthesizer.mp3",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"Screech Synthesizer also uses lots of S.A.M. samples, but it uses them more like a traditional instrument than DogDog.",
+            "duration":148
+        },
+        "13momshouse":{
+            "name":"13momshouse",
+            "artist":"StellaFoxxie",
+            "from":"the demo folder",
+            "src":"/assets/music/Demos/13momshouse.mp3",
+            "artsrc":"/assets/images/demo.png",
+            "blerb":"This is one of the demos that use my more 'current' naming system, it starts with the id number (13 in this case) and then two random words for easier identification, sometimes these words even mean something",
+            "duration":146
+        },
+        "Octogonis":{
+            "name":"Octogonis",
+            "artist":"StellaFoxxie",
+            "from":"Octogonis",
+            "src":"/assets/music/Games/Octogonis.mp3",
+            "artsrc":"/assets/images/games.png",
+            "blerb":"Octogonis is the theme song to the game of the same name. I dont think it ever had a name so i'm retroactivly naming it after the game",
+            "duration":64
+        },
+        "8NokiaDB":{
+            "name":"8NokiaDB",
+            "artist":"StellaFoxxie",
+            "from":"the demo folder",
+            "src":"/assets/music/Demos/8nokiaDB.mp3",
+            "artsrc":"/assets/images/demo.png",
+            "blerb":"This song originally started as an attempt to remix the famous Nokia ringtone into something else, so I could have a nerdy custom ringtone. however, it quickly devolved into me trying to make a Drum & Bass song in 3/4 (which is really hard!)",
             "duration":71
         },
-        "testTWO":{
-            "name":"test TWO",
+        "Ice Caves":{
+            "name":"Ice Caves",
             "artist":"StellaFoxxie",
-            "from":"the test folder",
-            "src":"/assets/music/test.mp3",
-            "artsrc":"/assets/images/testAlbum.png",
-            "blerb":"i dunno its a test song",
-            "duration":71
-        },
-        "testTHREE":{
-            "name":"test THREEEEEEEEEE",
-            "artist":"StellaFoxxie",
-            "from":"the test folder",
-            "src":"/assets/music/test2.mp3",
-            "artsrc":"/assets/images/testAlbum.png",
-            "blerb":"i dunno its a test song",
+            "from":"the demo folder",
+            "src":"/assets/music/Demos/ice caves.mp3",
+            "artsrc":"/assets/images/demo.png",
+            "blerb":"Ice caves is a video game esque song that hasnt actually been used in a game yet, but i dug it up from my demos folder (a very scary place) and decided it was worth showing off",
             "duration":85
+        },
+        "The Train":{
+            "name":"The Train",
+            "artist":"StellaFoxxie",
+            "from":"the demo folder",
+            "src":"/assets/music/Demos/the train.mp3",
+            "artsrc":"/assets/images/demo.png",
+            "blerb":"this was my very first attempt at telling a story through the medium of instrumental music. it tells the story of some folk riding a train across a newly built railway in the old west. they camp out in the desert and a dream sequence occurs.",
+            "duration":237
+        },        
+        "Untitled Demo 1":{
+            "name":"Untitled Demo 1",
+            "artist":"StellaFoxxie",
+            "from":"the demo folder",
+            "src":"/assets/music/Demos/untitled demo 1.mp3",
+            "artsrc":"/assets/images/demo.png",
+            "blerb":"Im gonna be honest, I dont even remember making this one.",
+            "duration":184
         }
     }
 }

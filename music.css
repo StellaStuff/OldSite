@@ -3,16 +3,17 @@ body {
 }
 
 .box {
-    padding: 3%;
+    padding: 2%;
     margin: 1%;
     content: "";
     clear: both;
     display: inline-block;
     float: none;
-    width: 41%;
+    width: 38%;
 }
-.box h2{
+.box h3{
     margin: 0;
+    margin-bottom: 0.25em;
 }
 .box p{
     margin: 0;
@@ -20,8 +21,10 @@ body {
 
 .albumArt {
     float: left;
-    width:20%;
-    padding: 0.5em;
+    width:40%;
+    border-radius: 1em;
+    margin: 0;
+    margin-right: 1em;
 }
 
 .song {
@@ -34,8 +37,9 @@ body {
 }
 .audioPlayer {
     width: 100%;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    margin-top: 0.5em;
 }
 .playPauseButton {
     font-size: 2em;

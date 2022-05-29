@@ -73,7 +73,7 @@ const songTemplate = `
 <div class="box">
     <div class='song'> 
         <img src='ALBUMSRC' class='albumArt'>
-        <h2>SONGTITLE</h2>
+        <h3>SONGTITLE</h3>
         <p>SONGDISCRIPTION</p>
         <div class="audioPlayer">
             <div class="sideButton">
