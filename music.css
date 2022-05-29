@@ -1,15 +1,21 @@
-
+body {
+    padding-bottom: 5%;
+}
 
 .box {
-    padding: 1em;
-    margin: 1em;
-    margin-left: 0;
+    padding: 3%;
+    margin: 1%;
     content: "";
     clear: both;
     display: inline-block;
-    line-height: 0.45em;
     float: none;
-    width: 40%;
+    width: 41%;
+}
+.box h2{
+    margin: 0;
+}
+.box p{
+    margin: 0;
 }
 
 .albumArt {
@@ -20,11 +26,36 @@
 
 .song {
     float: none;
+    display: table;
 }
 .songbox {
     width: 100%;
     float: none;
 }
 .audioPlayer {
-    width: 70%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.playPauseButton {
+    font-size: 2em;
+}
+.sideButton {
+    width: 5%;
+    padding: 2%;
+    font-weight: lighter;
+    display: inline-block;
+}
+.progressbar {
+    width: 80%;
+    padding-right: 5%;
+    padding-top: 1%;
+    float: right;
+}
+
+@media only screen and (max-width: 50em) { /*responsive effects for smaller screens*/
+    .box {
+        width: auto;
+    }
+    
 }

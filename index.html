@@ -20,14 +20,16 @@
                 </audio>
                 
                 <div class="progressbar">
-                    <p id="header-title-bar">I am broken!</p>
-                    <input type="range" class="seeker" id="header-seeker" oninput="musicPlayer.seek()" value="0">
+                    <p id="header-title-bar" class="title-bar">I am broken!</p>
+                    <input type="range" class="seeker" id="header-seeker" oninput="musicPlayer.seek()" step="0.25" value="0">
                     <input type="button" class="playPauseButton" id="header-playPauseButton" onclick="musicPlayer.playPause()" value="▶️">
                     <input type="button" class="playPauseButton" id="header-backButton" onclick="musicPlayer.back()" value="⏮️">
                     <p class="time" id="header-time">I am broken!</p>
                     <input type="button" class="playPauseButton" id="header-nextButton" onclick="musicPlayer.next()" value="⏭️">
-                    <input type="button" class="playPauseButton" id="header-nextButton" onclick="musicPlayer.shuffle()" value="🔀">
-                    
+                    <div class="volume-slider" id="header-volume-window">
+                        <input type="button" class="playPauseButton" id="header-volumeButton" onclick="musicPlayer.toggleVolume()" value="🔉">
+                        <input type="range" class="seeker" id="header-volume" oninput="musicPlayer.volume()" value="0.75" max="1" step="0.05">
+                    </div>
                 </div>
             </div>
         </div>

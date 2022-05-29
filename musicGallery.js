@@ -76,7 +76,9 @@ const songTemplate = `
         <h2>SONGTITLE</h2>
         <p>SONGDISCRIPTION</p>
         <div class="audioPlayer">
-            <input type="button" class="playPauseButton" id="SONGID-playPauseButton" onclick="songboxes[SONGID].playPause()" value="▶️">
+            <div class="sideButton">
+                <input type="button" class="playPauseButton" id="SONGID-playPauseButton" onclick="songboxes[SONGID].playPause()" value="▶️">
+            </div>
             <div class="progressbar">
                 <input type="range" class="seeker" id="SONGID-seeker" oninput="songboxes[SONGID].seek()" value="0" max="DURATION">
                 <p class="time" id="SONGID-time">0:00 / DURATIONFANCY</p>

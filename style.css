@@ -1,19 +1,25 @@
+@font-face {
+  font-family: "OpenMoji";
+  src: url('assets/OpenMoji-Black.ttf') format('truetype');
+}
+
 body { /* setting the font and spacing on the main body*/
     font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
     font-size: 1.25em;
     overflow: scroll;
-    overflow-x:hidden
+    overflow-x: hidden;
+
 }
 
-button {
+input {
     font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
 }
 
 .content {
     margin: 1em;
-    padding-top: 8em;
-    
+    padding-top: 9em;
 }
 
 iframe {
@@ -22,7 +28,6 @@ iframe {
     border: none;
     padding: 0;
     margin: 0;
-    
 }
 
 /*///////////////////audio player stuff///////////////////////////*/
@@ -32,6 +37,10 @@ iframe {
 .songbox {
     width: 40%;
     float: left;
+}
+
+.title-bar {
+    user-select: text;
 }
 
 .audioPlayer {
@@ -44,12 +53,15 @@ iframe {
 }
 
 .playPauseButton {
+    font-family: "OpenMoji", monospace;
     display: inline;
     border-color: #0000;
     background-color: #0000;
-    font-size: 0.75em;
+    font-size: 1em;
+    font-weight: bold;
     padding: 0;
     overflow: show;
+    cursor: pointer;
 }
 
 .seeker {
@@ -60,6 +72,7 @@ iframe {
     font-size: 1.25em;
     width: 90%;
     margin: auto;
+    user-select: none;
 }
 
 .progressbar p {
@@ -68,6 +81,30 @@ iframe {
     display: inline;
     padding: 0;
     margin: 0;
+}
+
+.volume-slider {
+    display: inline;
+    background-color: #dd00;
+    border-radius: 2em;
+    padding: 0.25%;
+    padding-right: 2%;
+
+    transition: background-color 0.5s;
+}
+
+
+
+.volume-slider .seeker {
+    width:0;
+    opacity: 0%;
+    transform: translate(-2em,0);
+    pointer-events: none;
+    transition: width 0.25s, opacity 0.5s, transform 0.25s;
+}
+
+.volume-slider .playPauseButton {
+    
 }
 
 .box {
@@ -88,6 +125,7 @@ iframe {
     top: 0;
     left: 0;
     right 0;
+    user-select: none;
 
 }
 
@@ -145,6 +183,7 @@ iframe {
     font-size: 1em;
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
+    cursor: pointer;
 }
 /*****************************************************end of header stuff******************************************************************/
 
