@@ -7,6 +7,11 @@ class MusicPlayer { //main music player for the header
         this.time = document.getElementById("header-time");
         this.seeker = document.getElementById("header-seeker");
         this.title = document.getElementById("header-title-bar");
+        this.volumeButton = document.getElementById("header-volumeButton");
+        this.volumeSlider = document.getElementById("header-volume");
+        this.volumeWindow = document.getElementById("header-volume-window");
+        
+        this.volumeWindowOpen = false;
         
         this.playlist = [];
         let temp = Object.keys(musicData["songs"]); //creates a temporary array of strings based on the names of the music
@@ -55,6 +60,11 @@ class MusicPlayer { //main music player for the header
             }
         }
     }
+    stop() {
+        this.pause();
+        this.player.currentTime = 0;
+        this.load(0);
+    }
     update() {
         ///generates the text saying how much time is remaining
         this.time.innerHTML = 
@@ -84,6 +94,37 @@ class MusicPlayer { //main music player for the header
             this.seeker.initialized = true;
         }
         this.player.currentTime = this.seeker.value; //actually sets the player position when you seek
+    }
+    toggleVolume() {
+        if (this.volumeWindowOpen) {
+            this.volumeSlider.style.width = "0";
+            this.volumeSlider.style.opacity = "0%";
+            this.volumeSlider.style.pointerEvents = "none";
+            this.volumeSlider.style.transform =  "translate(-2em,0)"
+            this.volumeWindow.style.background = "#dd00";
+            
+            this.volumeWindowOpen = false;
+        } else {
+            this.volumeSlider.style.width = "5em";
+            this.volumeSlider.style.opacity = "100%";
+            this.volumeSlider.style.pointerEvents = "auto";
+            this.volumeSlider.style.transform =  "translate(0,0)"
+            this.volumeWindow.style.background = "#ddddddff";
+            this.volumeWindowOpen = true;
+        }
+    }
+    volume() {
+        this.player.volume = this.volumeSlider.value;
+        if (this.volumeSlider.value == 0) { 
+            this.volumeButton.value = "🔇";                           
+        } else {
+            this.volumeButton.value = "🔉";
+        }
+        
+        if (this.volumeSlider.value > 0.75) {
+            this.volumeButton.value = "🔊";
+        }
+        
     }
     getPlaylist() {
         return this.playlist;   
