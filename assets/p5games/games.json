@@ -1,0 +1,24 @@
+{
+    "games":{
+        "test":{
+            "name":"test",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+        },
+        "testawd":{
+            "name":"testeeee",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+        },
+        "testgew":{
+            "name":"teseeeet",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+        },
+        "tegawst":{
+            "name":"tgfege",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+        }
+    }
+}

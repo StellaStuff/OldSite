@@ -14,7 +14,7 @@ class PseudoPlayer {
         temp = temp.replace(/DURATION/g,this.duration);
         
         document.getElementsByClassName('songbox')[0].insertAdjacentHTML('beforeend', temp);
-        parent.resizeIframe();
+        
         
         this.playButton = document.getElementById(this.id + "-playPauseButton");//////grabbing all the things it needs
         this.time = document.getElementById(this.id + "-time");
@@ -80,13 +80,13 @@ const songTemplate = `
                 <input type="button" class="playPauseButton" id="SONGID-playPauseButton" onclick="songboxes[SONGID].playPause()" value="▶️">
             </div>
             <div class="progressbar">
-                <input type="range" class="seeker" id="SONGID-seeker" oninput="songboxes[SONGID].seek()" value="0" max="DURATION">
+                <input type="range" class="seeker" id="SONGID-seeker" oninput="songboxes[SONGID].seek()" value="0" max="DURATION" step="0.01">
                 <p class="time" id="SONGID-time">0:00 / DURATIONFANCY</p>
             </div>
         </div>
     </div>
 </div>`;
-var playlist = parent.musicPlayer.playlist, songboxes = Object;
+var playlist = parent.playlist, songboxes = Object;
 
 preload(setup());
 
@@ -98,6 +98,7 @@ function setup() {
     for (var i = 0; i < playlist.length; i+=1) {
         songboxes[i] = new PseudoPlayer(i);
     }
+    parent.resizeIframe();
 }
 
 function stopEverything() {

@@ -26,9 +26,9 @@
                     <input type="button" class="playPauseButton" id="header-backButton" onclick="musicPlayer.back()" value="⏮️">
                     <p class="time" id="header-time">I am broken!</p>
                     <input type="button" class="playPauseButton" id="header-nextButton" onclick="musicPlayer.next()" value="⏭️">
-                    <div class="volume-slider" id="header-volume-window">
-                        <input type="button" class="playPauseButton" id="header-volumeButton" onclick="musicPlayer.toggleVolume()" value="🔉">
-                        <input type="range" class="seeker" id="header-volume" oninput="musicPlayer.volume()" value="0.75" max="1" step="0.05">
+                    <div class="volume-slider" onmouseenter="musicPlayer.toggleVolume()" onmouseleave="musicPlayer.toggleVolume()" id="header-volume-window">
+                        <input type="button" class="playPauseButton" id="header-volumeButton" onclick="musicPlayer.muteUnmute()" value="🔉">
+                        <input type="range" class="seeker" id="header-volume" oninput="musicPlayer.volume(event)" value="0.75" max="1" step="0.01">
                     </div>
                 </div>
             </div>

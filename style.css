@@ -9,7 +9,6 @@ body { /* setting the font and spacing on the main body*/
     font-size: 1.25em;
     overflow: scroll;
     overflow-x: hidden;
-
 }
 
 input {
