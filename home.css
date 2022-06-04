@@ -3,7 +3,7 @@
     width: 50%;
     
     float: right;
-    padding: 2em;
+    padding: 4%;
     padding-top: 0;
     padding-right: 0;
 }
@@ -32,7 +32,7 @@
     display: table;
 }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-aspect-ratio: 3/4) {
     #portrait {
         padding-bottom: 0em;
         display: none;

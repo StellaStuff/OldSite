@@ -10,15 +10,12 @@ class GameThumbnail {
         document.getElementsByClassName('gamebox')[0].insertAdjacentHTML('beforeend', temp);
 
     }
-    changePage(id) {
-        
-    }
 }
 
 
 const gameTemplate = `
 <div class="box">
-    <div class='game' id='gameID'> 
+    <div class='game' id='gameID' onclick='parent.changePage("games",false,false,"GAMETITLE")')> 
         <img src='THUMBNAILSRC' class='thumbnail'>
         <h3>GAMETITLE</h3>
         <p>GAMEDISCRIPTION</p>
@@ -30,7 +27,7 @@ var gameData, gameboxes = [];
 preload(setup);
 
 async function preload(callback) {
-    temp = await fetch("assets/p5games/games.json").then(response => {return response.json();});
+    temp = await fetch("assets/games/games.json").then(response => {return response.json();});
     
     gameData = [];
     let names = Object.keys(temp["games"]); //creates a temporary array of strings based on the names of the games

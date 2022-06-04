@@ -135,8 +135,7 @@ class MusicPlayer { //main music player for the header
     }
 }
 
-function changePage(Page, noPush, noRefresh) {
-    console.log()
+function changePage(Page, noPush, noRefresh, SubPage) {
     tabs = document.getElementsByClassName("tabs");
 
     
@@ -147,18 +146,32 @@ function changePage(Page, noPush, noRefresh) {
     }
     document.getElementById(Page).setAttribute("class","tabs active");
     
-    if (!noPush) {
-        history.pushState(Page, '', "?" + Page);
+    if (SubPage != undefined) {
+        if (!noPush) {
+            history.pushState(Page, '', "?" + Page + "&" + SubPage);
+        }
+        if (!noRefresh && noPush) {
+            history.replaceState(Page, '', "?" + Page + "&" + SubPage);
+        }
+        if (!noRefresh) {
+            document.getElementsByTagName("iframe")[0].contentDocument.location.replace("assets/" + Page + "/" + SubPage + ".html");
+        }
+    } else {
+        if (!noPush) {
+            history.pushState(Page, '', "?" + Page);
+        }
+        if (!noRefresh && noPush) {
+            history.replaceState(Page, '', "?" + Page);
+        }
+        if (!noRefresh) {
+            document.getElementsByTagName("iframe")[0].contentDocument.location.replace(Page + ".html");
+        }
     }
     
-    if (!noRefresh) {
-        document.getElementsByTagName("iframe")[0].contentDocument.location.replace(Page + ".html");
-    }
     
-    if (!noRefresh && noPush) {
-        history.replaceState(Page, '', "?" + Page);
-    }
-
+    
+    
+    subpage = SubPage;
     page = Page;
 }
 
@@ -190,6 +203,7 @@ async function preload(callback) {
     iframe.onload = function () {
         resizeIframe();
     }
+    iframe.onload(); //forces the iframe to resize itself as the js initializes to prevent an issue where the iframe loads before the onload() can be defined
     if (callback != undefined) callback();
 }
 
@@ -197,7 +211,15 @@ async function preload(callback) {
 function setup() {
     musicPlayer.load(0);
     setInterval(tick, 1000/20);
-    if (window.location.search != "") changePage(window.location.search.slice(1));
+    if (window.location.search != "") {
+        var temp = window.location.search.split("&");
+        
+        if (temp.length > 1) {
+            changePage(temp[0].slice(1),false,false,temp[1]);
+        } else {
+            changePage(temp[0].slice(1));
+        }
+    }
 }
 
 function tick() {

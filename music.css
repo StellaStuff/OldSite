@@ -56,10 +56,8 @@ body {
     padding-top: 1%;
     float: right;
 }
-
-@media only screen and (max-width: 50em) { /*responsive effects for smaller screens*/
+@media screen and (max-width: 78em) { /*responsive effects for smaller screens*/
     .box {
         width: auto;
     }
-    
 }

@@ -104,7 +104,6 @@ function setup() {
 function stopEverything() {
     for (var i = 0; i < playlist.length; i+=1) {
         songboxes[i].pause();
-        console.log("test");
     }
 }
 
