@@ -1,0 +1,50 @@
+body {
+    padding-bottom: 5%;
+}
+
+.box {
+    padding: 2%;
+    margin: 1%;
+    content: "";
+    clear: both;
+    display: inline-block;
+    float: none;
+    width: 38%;
+}
+.box h3{
+    margin: 0;
+    margin-bottom: 0.25em;
+}
+.box p{
+    margin: 0;
+}
+
+.thumbnail {
+    float: left;
+    width:60%;
+    border-radius: 1em;
+    margin: 0;
+    margin-right: 1em;
+}
+
+.game {
+    float: none;
+    display: table;
+    cursor: pointer;
+}
+
+.gamebox {
+    width: 100%;
+    float: none;
+}
+
+img {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 78em) { /*responsive effects for smaller screens*/
+    .box {
+        width: auto;
+    }
+}
+

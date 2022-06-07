@@ -6,10 +6,9 @@
 body { /* setting the font and spacing on the main body*/
     font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
-    font-size: 1.25em;
+    font-size: 150%;
     overflow: scroll;
     overflow-x: hidden;
-
 }
 
 input {
@@ -20,10 +19,12 @@ input {
 .content {
     margin: 1em;
     padding-top: 9em;
+    display: table;
 }
 
 iframe {
     width: 100%;
+    height: 
     display: block;
     border: none;
     padding: 0;
@@ -196,7 +197,7 @@ iframe {
     margin: 1em;
 }
 
-@media only screen and (max-width: 50em) { /*responsive effects for smaller screens*/
+@media screen and (max-width: 81em) { /*responsive effects for smaller screens*/
     .audioPlayer {
         float: none;
         width: 80%;

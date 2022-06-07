@@ -13,18 +13,14 @@ class MusicPlayer { //main music player for the header
         
         this.volumeWindowOpen = false;
         
-        this.playlist = [];
-        let temp = Object.keys(musicData["songs"]); //creates a temporary array of strings based on the names of the music
-        for(var i = 0; i < temp.length; i+=1) {
-            this.playlist.push(musicData["songs"][temp[i]])
-        }
+
         this.nowPlaying = 0;
     }
     load(songId) {
-        this.player.setAttribute("src",this.playlist[songId].src)
-        this.title.innerHTML = this.playlist[songId].name;
+        this.player.setAttribute("src",playlist[songId].src)
+        this.title.innerHTML = playlist[songId].name;
         this.nowPlaying = songId;
-        if (this.seeker != undefined) this.seeker.max = this.playlist[songId].duration;
+        if (this.seeker != undefined) this.seeker.max = playlist[songId].duration;
     }
     
     play() {
@@ -43,15 +39,13 @@ class MusicPlayer { //main music player for the header
         }
     }
     next() {
-        if(this.nowPlaying < this.playlist.length - 1) {
-            console.log(this.nowPlaying, this.playlist.length);
+        if(this.nowPlaying < playlist.length - 1) {
             this.load(this.nowPlaying + 1);   
             this.play();
             if(page == "music" && iframe.contentWindow.songboxes != undefined) {
                 iframe.contentWindow.songboxes[this.nowPlaying - 1].playButton.value = "▶️";
             }
         }
-
     }
     back() {
         if(this.nowPlaying > 0) {
@@ -67,6 +61,19 @@ class MusicPlayer { //main music player for the header
         this.player.currentTime = 0;
         this.load(0);
     }
+    muteUnmute() {
+        if (this.oldvol == undefined) this.oldvol = 0.5;
+        if (this.player.volume == 0) {
+            this.player.volume = this.oldvol;
+            this.volumeSlider.value = this.oldvol;
+            this.volumeButton.value = "🔉";
+        } else {
+            this.oldvol = this.player.volume;
+            this.volumeSlider.value = 0;
+            this.player.volume = 0;
+            this.volumeButton.value = "🔇";
+        }
+    }
     update() {
         ///generates the text saying how much time is remaining
         this.time.innerHTML = 
@@ -75,15 +82,7 @@ class MusicPlayer { //main music player for the header
         this.seeker.value = this.player.currentTime; ///sets the seeker slider to the right position
         
         if (this.player.ended) {
-            if (this.playlist[this.nowPlaying+1] != undefined) {
-                this.load(this.nowPlaying + 1);
-                this.play();
-                if(page == "music" && iframe.contentWindow.songboxes != undefined) {
-                    iframe.contentWindow.songboxes[this.nowPlaying - 1].playButton.value = "▶️";
-                }
-            } else {
-                this.pause();
-            }
+            this.next();
         }
         
         if(page == "music" && iframe.contentWindow.songboxes != undefined) {
@@ -96,6 +95,7 @@ class MusicPlayer { //main music player for the header
             this.seeker.initialized = true;
         }
         this.player.currentTime = this.seeker.value; //actually sets the player position when you seek
+        this.update(); //runs the update function which makes the sliders and time remaining update way faster, allowing the site to feel smooth while not wasting cpu time updating very fast
     }
     toggleVolume() {
         if (this.volumeWindowOpen) {
@@ -129,15 +129,16 @@ class MusicPlayer { //main music player for the header
         
     }
     getPlaylist() {
-        return this.playlist;   
+        return playlist;   
     }
     getNowPlaying() {
         return this.nowPlaying;
     }
 }
 
-function changePage(Page, noPush, noRefresh) {
+function changePage(Page, noPush, noRefresh, SubPage) {
     tabs = document.getElementsByClassName("tabs");
+
     
     for(var i = 0; i < tabs.length; i+=1) {
         if (tabs[i].getAttribute("class") == "tabs active") {
@@ -146,24 +147,39 @@ function changePage(Page, noPush, noRefresh) {
     }
     document.getElementById(Page).setAttribute("class","tabs active");
     
-    if (!noPush) {
-        history.pushState(Page, '', "?" + Page);
+    if (SubPage != undefined) {
+        if (!noPush) {
+            history.pushState(Page, '', "?" + Page + "&" + SubPage);
+        }
+        if (!noRefresh && noPush) {
+            history.replaceState(Page, '', "?" + Page + "&" + SubPage);
+        }
+        if (!noRefresh) {
+            document.getElementsByTagName("iframe")[0].contentDocument.location.replace("assets/" + Page + "/" + SubPage + "/" + "index.html");
+        }
+    } else {
+        if (!noPush) {
+            history.pushState(Page, '', "?" + Page);
+        }
+        if (!noRefresh && noPush) {
+            history.replaceState(Page, '', "?" + Page);
+        }
+        if (!noRefresh) {
+            document.getElementsByTagName("iframe")[0].contentDocument.location.replace(Page + ".html");
+        }
     }
     
-    if (!noRefresh) {
-        document.getElementsByTagName("iframe")[0].contentDocument.location.replace(Page + ".html");
-    }
     
-    if (!noRefresh && noPush) {
-        history.replaceState(Page, '', "?" + Page);
-    }
     
-    //console.log(state);
+    
+    subpage = SubPage;
     page = Page;
 }
 
 function resizeIframe() {
-    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    if (iframe.contentWindow.document.body != undefined) {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
 }
 
 //////////end of classes & large functions////////}
@@ -171,31 +187,43 @@ preload(setup); ////pulls the script up by its bootstraps
 
 
 var page = "home";
-var musicData, gameData, musicPlayer, iframe;
+var musicData, playlist, gameData, musicPlayer, iframe;
 
 
 async function preload(callback) {
-    musicData = await fetch("assets/music/music.json").then(response => {return response.json();});
-    //gameData = await fetch("assets/p5games/games.json").then(response => {return response.json();});
+    temp = await fetch("assets/music/music.json").then(response => {return response.json();});
+    
+    playlist = [];
+    let names = Object.keys(temp["songs"]); //creates a temporary array of strings based on the names of the music
+        for(var i = 0; i < names.length; i+=1) {
+        playlist.push(temp["songs"][names[i]])
+    }
+    
     musicPlayer = new MusicPlayer();
     
     
     iframe = document.getElementById("main-iframe");
-    iframe.onload = function () {
-        resizeIframe();
-    }
     if (callback != undefined) callback();
 }
 
 
 function setup() {
     musicPlayer.load(0);
-    setInterval(tick, 1000/20);
-    if (window.location.search != "") changePage(window.location.search.slice(1));
+    setInterval(tick, 1000/2);
+    if (window.location.search != "") {
+        var temp = window.location.search.split("&");
+        
+        if (temp.length > 1) {
+            changePage(temp[0].slice(1),false,false,temp[1]);
+        } else {
+            changePage(temp[0].slice(1));
+        }
+    }
 }
 
 function tick() {
-    musicPlayer.update(); //runs the update function 20 times a second
+    musicPlayer.update(); //runs the update function 10 times a second
+    resizeIframe();
 }
 
 
