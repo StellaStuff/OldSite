@@ -5,6 +5,7 @@ class GameThumbnail {
         temp = temp.replace(/THUMBNAILSRC/g,gameData[id].artsrc);
         temp = temp.replace(/ID/g,id);
         temp = temp.replace(/GAMETITLE/g,gameData[id].name);
+        temp = temp.replace(/GAMESRC/g,gameData[id].src);
         temp = temp.replace(/GAMEDISCRIPTION/g,gameData[id].blerb);
         
         document.getElementsByClassName('gamebox')[0].insertAdjacentHTML('beforeend', temp);
@@ -15,7 +16,7 @@ class GameThumbnail {
 
 const gameTemplate = `
 <div class="box">
-    <div class='game' id='gameID' onclick='parent.changePage("games",false,false,"GAMETITLE")')> 
+    <div class='game' id='gameID' onclick='parent.changePage("games",false,false,"GAMESRC")')> 
         <img src='THUMBNAILSRC' class='thumbnail'>
         <h3>GAMETITLE</h3>
         <p>GAMEDISCRIPTION</p>

@@ -32,9 +32,14 @@ body {
     display: table;
     cursor: pointer;
 }
+
 .gamebox {
     width: 100%;
     float: none;
+}
+
+img {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 78em) { /*responsive effects for smaller screens*/

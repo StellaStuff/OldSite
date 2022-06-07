@@ -32,7 +32,7 @@
     display: table;
 }
 
-@media only screen and (max-aspect-ratio: 3/4) {
+@media only screen and (max-width: 78em) {
     #portrait {
         padding-bottom: 0em;
         display: none;

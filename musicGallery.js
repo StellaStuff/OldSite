@@ -60,11 +60,13 @@ class PseudoPlayer {
         this.seeker.value = this.currentTime; ///sets the seeker slider to the right position
     }
     seek() {
+        
         if (parent.musicPlayer.nowPlaying != this.id) {
             parent.musicPlayer.load(this.id);
         } else {
             parent.musicPlayer.player.currentTime = this.seeker.value; //actually sets the player position when you seek  
         }
+        parent.musicPlayer.update();
     }
 }
 

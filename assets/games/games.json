@@ -1,14 +1,16 @@
 {
     "games":{
-        "test":{
-            "name":"test",
-            "artsrc":"/assets/images/synth.jpg",
+        "hexagon-tunnel":{
+            "name":"Hexagon tunnel",
+            "src":"Hexagon-tunnel",
+            "artsrc":"/assets/games/thumbs/hextunnel.png",
             "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
         },
-        "testawd":{
-            "name":"testeeee",
-            "artsrc":"/assets/images/synth.jpg",
-            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+        "Animated-Sprites-Test":{
+            "name":"Animated Sprites Test",
+            "src":"animated-sprites-test",
+            "artsrc":"/assets/games/thumbs/anispritetest.png",
+            "blerb":"a demo showing off custom animated sprites in p5js"
         },
         "testgew":{
             "name":"teseeeet",

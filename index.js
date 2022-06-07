@@ -95,6 +95,7 @@ class MusicPlayer { //main music player for the header
             this.seeker.initialized = true;
         }
         this.player.currentTime = this.seeker.value; //actually sets the player position when you seek
+        this.update(); //runs the update function which makes the sliders and time remaining update way faster, allowing the site to feel smooth while not wasting cpu time updating very fast
     }
     toggleVolume() {
         if (this.volumeWindowOpen) {
@@ -154,7 +155,7 @@ function changePage(Page, noPush, noRefresh, SubPage) {
             history.replaceState(Page, '', "?" + Page + "&" + SubPage);
         }
         if (!noRefresh) {
-            document.getElementsByTagName("iframe")[0].contentDocument.location.replace("assets/" + Page + "/" + SubPage + ".html");
+            document.getElementsByTagName("iframe")[0].contentDocument.location.replace("assets/" + Page + "/" + SubPage + "/" + "index.html");
         }
     } else {
         if (!noPush) {
@@ -176,7 +177,9 @@ function changePage(Page, noPush, noRefresh, SubPage) {
 }
 
 function resizeIframe() {
-    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    if (iframe.contentWindow.document.body != undefined) {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
 }
 
 //////////end of classes & large functions////////}
@@ -200,17 +203,13 @@ async function preload(callback) {
     
     
     iframe = document.getElementById("main-iframe");
-    iframe.onload = function () {
-        resizeIframe();
-    }
-    iframe.onload(); //forces the iframe to resize itself as the js initializes to prevent an issue where the iframe loads before the onload() can be defined
     if (callback != undefined) callback();
 }
 
 
 function setup() {
     musicPlayer.load(0);
-    setInterval(tick, 1000/20);
+    setInterval(tick, 1000/2);
     if (window.location.search != "") {
         var temp = window.location.search.split("&");
         
@@ -223,7 +222,8 @@ function setup() {
 }
 
 function tick() {
-    musicPlayer.update(); //runs the update function 20 times a second
+    musicPlayer.update(); //runs the update function 10 times a second
+    resizeIframe();
 }
 
 
