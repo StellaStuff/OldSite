@@ -1,6 +1,5 @@
 function setup() {
   canvas = createCanvas(400, 400);
-    parent.resizeIframe();
     canvas.parent("canvas");
 }
 

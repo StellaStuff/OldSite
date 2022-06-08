@@ -1,5 +1,5 @@
-let startimg,fileInput,scaleSlider;
-var pixelSize = 16, border = 1, notch = 2;
+let startimg,fileInput,maxsize;
+var pixelSize = 16, border = 0, notch = 2;
 
 function preload() {
   //startimg = loadImage('test.png');
@@ -7,8 +7,9 @@ function preload() {
 
 function setup() {
   fileInput = createFileInput(handleFile);
-  scaleSlider = createSlider(0,1,1,0.01);
+    maxsize = createSlider(1000, 10000000, 100);
   createCanvas(10,10);
+    
   //reDraw();
 }
 
@@ -24,7 +25,7 @@ function draw() {
 }
 
 function reDraw() {
-  //startimg.resize(startimg.width*scaleSlider.value,startimg.height*scaleSlider.value);
+    
   resizeCanvas(startimg.width * pixelSize, startimg.height * pixelSize)
   translate(0,-pixelSize)
   noStroke(0);
@@ -32,13 +33,17 @@ function reDraw() {
 
   startimg.loadPixels();
   
-  if(startimg.pixels.length > 100000) {
-    startimg.resize(startimg.width*0.5,startimg.height*0.5);
-    print("too big! resizing!");
-    reDraw();
-    return;
+  while (startimg.pixels.length > maxsize.value()) {
+        
+        startimg.resize(startimg.width*0.5,startimg.height*0.5);
+        resizeCanvas(startimg.width * pixelSize, startimg.height * pixelSize);
+        translate(0,-pixelSize);
+        noStroke(0);
+        background(0);
+        print("too big! resizing!");
+      startimg.updatePixels();
   }
-  
+  var i = 0;
   var t = 0;
   for (i = 0; i < startimg.width * startimg.height; i += 1) {
     if (i % startimg.width == 0) {
@@ -49,7 +54,7 @@ function reDraw() {
   }
   startimg.updatePixels();
   print("done");
-  print(i);
+  print(i + " " + t);
 }
 
 function showPixel(x, y, i) {

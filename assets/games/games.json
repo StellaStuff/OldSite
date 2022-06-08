@@ -1,10 +1,22 @@
 {
     "games":{
+        "Octogonis":{
+            "name":"Octogonis",
+            "src":"Octogonis",
+            "artsrc":"/assets/games/thumbs/octogonis.png",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "Caduceus":{
+            "name":"Caduceus",
+            "src":"Caduceus",
+            "artsrc":"/assets/games/thumbs/caduceus.png",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
         "hexagon-tunnel":{
             "name":"Hexagon tunnel",
             "src":"Hexagon-tunnel",
             "artsrc":"/assets/games/thumbs/hextunnel.png",
-            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+            "blerb":"this is some placeholder text because i havent written the description yet!"
         },
         "Animated-Sprites-Test":{
             "name":"Animated Sprites Test",
@@ -12,15 +24,10 @@
             "artsrc":"/assets/games/thumbs/anispritetest.png",
             "blerb":"a demo showing off custom animated sprites in p5js"
         },
-        "testgew":{
-            "name":"teseeeet",
-            "artsrc":"/assets/images/synth.jpg",
-            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
-        },
         "tegawst":{
             "name":"tgfege",
             "artsrc":"/assets/images/synth.jpg",
-            "blerb":"test test test test iwehio fguwe ofucbseij awewiuebfiwuebf laskjeb wefhuiw we we gwe hw9e oibhn zd fws edfs hseog"
+            "blerb":"this is some placeholder text because i havent written the description yet!"
         }
     }
 }
