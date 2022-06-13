@@ -33,6 +33,12 @@ body {
     cursor: pointer;
 }
 
+#canvas {
+    display: table;
+    position: relative;
+    margin: auto;
+}
+
 .gamebox {
     width: 100%;
     float: none;

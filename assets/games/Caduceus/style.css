@@ -1,0 +1,45 @@
+@font-face {
+  src: url(dpcomic.ttf);
+  font-family: ser;
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: arial;
+}
+
+canvas {
+  display: block;
+}
+
+button {
+  color: #8672db;
+  font-family: ser;
+  background-color: #F2E8FE;
+  border-color: #6cbce2;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.slider {
+
+  -webkit-appearance: none;
+  width:129px;
+  
+  background-color: #F2E8FE;
+  border-style: solid;
+  border-color: #6cbce2;
+  border-radius: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #8672db;
+  cursor: pointer;
+}
