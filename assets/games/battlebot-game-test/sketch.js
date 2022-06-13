@@ -5,7 +5,8 @@ let player = new Player(20,20);
 let enemies = [];
 
 function setup() {
-  createCanvas(400, 400);
+    canvas = createCanvas(400, 400);
+    canvas.parent("canvas");
 }
 
 function draw() {

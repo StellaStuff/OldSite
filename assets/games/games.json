@@ -24,6 +24,18 @@
             "artsrc":"/assets/games/thumbs/anispritetest.png",
             "blerb":"a demo showing off custom animated sprites in p5js"
         },
+        "battle-bot-test":{
+            "name":"Battle Bot game test",
+            "src":"battlebot-game-test",
+            "artsrc":"/assets/games/thumbs/battlebottest.png",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "starfield":{
+            "name":"StarField",
+            "src":"StarField",
+            "artsrc":"/assets/games/thumbs/starfeild.png",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
         "tegawst":{
             "name":"tgfege",
             "artsrc":"/assets/images/synth.jpg",

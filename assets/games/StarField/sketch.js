@@ -9,7 +9,8 @@ var t = 0;
 
 
 function setup() {
-  createCanvas(600, 600);
+      canvas = createCanvas(600, 600);
+    canvas.parent("canvas");
 }
 
 function draw() {

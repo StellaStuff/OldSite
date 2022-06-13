@@ -43,7 +43,7 @@ function setup() {
         gameboxes[i] = new GameThumbnail(i);
     }
     parent.resizeIframe();
-    if (window.innerWidth < window.innerHeight) {
+    if (screen.innerWidth < screen.innerHeight) {
         alert("WARNING: this part of the site is intended for desktop use. most of the games & demos *should* work on mobile, but may require a keyboard or a larger display to function properly");   
     }
 }
