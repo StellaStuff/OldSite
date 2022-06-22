@@ -39,6 +39,11 @@ body {
     margin: auto;
 }
 
+canvas {
+    margin: auto;
+    display: inline-block;
+}
+
 .gamebox {
     width: 100%;
     float: none;
