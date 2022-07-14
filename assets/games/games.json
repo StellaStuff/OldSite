@@ -36,8 +36,45 @@
             "artsrc":"/assets/games/thumbs/starfeild.png",
             "blerb":"this is some placeholder text because i havent written the description yet!"
         },
-        "tegawst":{
-            "name":"tgfege",
+        "box-illusion":{
+            "name":"box illusion",
+            "src":"box-illusion",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "additive-drone":{
+            "name":"additive drone",
+            "src":"additive-drone",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "color-guesser":{
+            "name":"RGB color guesser",
+            "src":"color-guesser",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "subpixel-generator":{
+            "name":"Subpixel Generator",
+            "src":"subpixel-generator",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "Sprite-Editor":{
+            "name":"Sprite Editor",
+            "src":"Sprite-Editor",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "orbit-relations":{
+            "name":"Orbit Relation Visualizer",
+            "src":"orbit-relations",
+            "artsrc":"/assets/images/synth.jpg",
+            "blerb":"this is some placeholder text because i havent written the description yet!"
+        },
+        "vectrex-graphics-test":{
+            "name":"Vector Graphics Engine Concept",
+            "src":"vectrex-graphics-test",
             "artsrc":"/assets/images/synth.jpg",
             "blerb":"this is some placeholder text because i havent written the description yet!"
         }

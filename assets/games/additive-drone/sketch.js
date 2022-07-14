@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(640, 480, WEBGL);
+  canvas = createCanvas(640, 480, WEBGL);
+    canvas.parent("canvas");
   tuneing = createSlider(0, 500, 1, 0.001);
   tuneing.addClass("slider");
   tuneing.position(-5, height + 20);
