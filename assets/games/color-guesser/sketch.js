@@ -1,6 +1,8 @@
 function setup() {
-  createCanvas(500, 500);
+  canvas = createCanvas(500, 500);
+  canvas.parent("canvas");
   ent = createButton('Enter');
+  ent.parent("canvas");
   ent.position(width / 2 - ent.size().width / 2 + 100, height / 2);
   ent.mousePressed(enter);
 
@@ -10,14 +12,17 @@ function setup() {
 
   r = createInput(150, 'number');
   r.size(40);
+  r.parent("canvas");
   r.position(width / 2 - ent.size().width / 2 - 50, height / 2);
 
   g = createInput(150, 'number');
   g.size(40);
+  g.parent("canvas");
   g.position(width / 2 - ent.size().width / 2, height / 2);
 
   b = createInput(150, 'number');
   b.size(40);
+  b.parent("canvas");
   b.position(width / 2 - ent.size().width / 2 + 50, height / 2);
 
 
