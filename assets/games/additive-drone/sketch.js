@@ -1,33 +1,42 @@
 function setup() {
   canvas = createCanvas(640, 480, WEBGL);
     canvas.parent("canvas");
-  tuneing = createSlider(0, 500, 1, 0.001);
+
+  tuneing = createSlider(0, 500, 50, 0.001);
   tuneing.addClass("slider");
-  tuneing.position(-5, height + 20);
+  tuneing.parent("canvas");
+  tuneing.position(-5, height + 40);
   tuneingtext = createP('"in tune"-ness');
+  tuneingtext.parent("canvas");
   tuneingtext.position(0, height - 10);
 
 
-  volume = createSlider(0, 0.5, 0.25, 0.001);
+  volume = createSlider(0, 0.5, 0.1, 0.001);
   volume.addClass("slider");
-  volume.position(-5, height + 60);
+  volume.parent("canvas");
+  volume.position(-5, height + 90);
   volumetext = createP('Volume');
-  volumetext.position(0, height + 30);
+  volumetext.parent("canvas");
+  volumetext.position(0, height + 40);
 
   stotal = createSlider(0, 150, 75, 1);
   stotal.addClass("slider");
-  stotal.position(-5, height + 100);
+  stotal.parent("canvas");
+  stotal.position(-5, height + 140);
   stotal.mouseReleased(resetOscs);
   stotaltext = createP('this is some text');
-  stotaltext.position(0, height + 70);
+  stotaltext.parent("canvas");
+  stotaltext.position(0, height + 90);
 
   note = createSlider(0, 88, 44, 1);
   note.addClass("slider");
-  note.position(-5, height + 140);
+  note.parent("canvas");
+  note.position(-5, height + 190);
   offset = noise(500, 500, time / 1000) * 600;
   resetOscs();
   notetext = createP('this is some text');
-  notetext.position(0, height + 110);
+  notetext.parent("canvas");
+  notetext.position(0, height + 140);
 
 }
 
@@ -56,7 +65,7 @@ function draw() {
   orbitControl();
   background(255);
   strokeWeight(10);
-  print(offset);
+  //print(offset);
   freq = 262 * pow(2, (note.value() - 44) / 12);
   stotaltext.html("number of oscilators: " + stotal.value());
   notetext.html("current note: " + notes[(note.value() + 88) % 12] + int((note.value()) / 12 + 0.4) );
