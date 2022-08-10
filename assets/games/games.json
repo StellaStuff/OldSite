@@ -4,19 +4,19 @@
             "name":"Octogonis",
             "src":"Octogonis",
             "artsrc":"/assets/games/thumbs/octogonis.png",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"Octogonis is one of the first games i've completed and released"
         },
         "Caduceus":{
             "name":"Caduceus",
             "src":"Caduceus",
             "artsrc":"/assets/games/thumbs/caduceus.png",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"Caduceus (double snake) is a game that i made for United Game Jam 2020"
         },
         "hexagon-tunnel":{
             "name":"Hexagon tunnel",
             "src":"Hexagon-tunnel",
             "artsrc":"/assets/games/thumbs/hextunnel.png",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"A simple graphical demo"
         },
         "Animated-Sprites-Test":{
             "name":"Animated Sprites Test",
@@ -28,43 +28,37 @@
             "name":"Battle Bot game test",
             "src":"battlebot-game-test",
             "artsrc":"/assets/games/thumbs/battlebottest.png",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"this is a prototype of a robot fighting game"
         },
         "starfield":{
             "name":"StarField",
             "src":"StarField",
             "artsrc":"/assets/games/thumbs/starfeild.png",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"a neat graphical demo based off the screensaver of the same name"
         },
         "box-illusion":{
             "name":"box illusion",
             "src":"box-illusion",
             "artsrc":"/assets/images/synth.jpg",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"a simple animation inspired by @beesandbombs"
         },
         "additive-drone":{
             "name":"additive drone",
             "src":"additive-drone",
             "artsrc":"/assets/images/synth.jpg",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"this is a noise synthesiser inspired by a project from look mum no computer"
         },
         "color-guesser":{
             "name":"RGB color guesser",
             "src":"color-guesser",
             "artsrc":"/assets/images/synth.jpg",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
-        },
-        "subpixel-generator":{
-            "name":"Subpixel Generator",
-            "src":"subpixel-generator",
-            "artsrc":"/assets/images/synth.jpg",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"this is a really simple game where you have to guess the rgb values of the color on screen"
         },
         "Sprite-Editor":{
             "name":"Sprite Editor",
             "src":"Sprite-Editor",
             "artsrc":"/assets/images/synth.jpg",
-            "blerb":"this is some placeholder text because i havent written the description yet!"
+            "blerb":"this is a really simple pixelart editor I made in highschool, I didnt even know how to use classes yet"
         },
         "orbit-relations":{
             "name":"Orbit Relation Visualizer",
