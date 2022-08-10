@@ -54,7 +54,7 @@ iframe {
 }
 
 .playPauseButton {
-    font-family: "OpenMoji", monospace;
+    font-family: OpenMoji;
     display: inline;
     border-color: #0000;
     background-color: #0000;

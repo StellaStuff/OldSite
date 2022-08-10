@@ -7,7 +7,8 @@ var toggle = false;
 var toggletst = false;
 
 function setup() {
-  createCanvas(500, 500,WEBGL);
+  canvas = createCanvas(500, 500,WEBGL);
+    canvas.parent("canvas");
   if (width < height) {
     w = width/2;
   } else {
