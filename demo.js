@@ -1,9 +1,10 @@
 
 class Boxes {
-    constructor(size,density,weight) {
+    constructor(size,density,weight,Z) {
         this.size = size;
         this.density = density;
         this.weight = weight;
+        this.z = Z;
 
         this.boxes = [];
 
@@ -12,7 +13,7 @@ class Boxes {
 
         for (var i = 0; i < w; i++) {
             for (var j = 0; j < h; j++) {
-                this.boxes.push(new box(i/w*width,j/h*height,size,weight));
+                this.boxes.push(new box(i/w*width,j/h*height,size,weight,Z));
             }
         }
     }
@@ -42,19 +43,27 @@ class Boxes {
 }
 
 class box {
-    constructor(x,y,size,weight) {
+    constructor(x,y,size,weight,z) {
         this.ox = x;
         this.oy = y;
         this.w = size;
         this.h = size;
         this.x = x;
         this.y = y;
+        this.z = z;
         this.fx = 0;
         this.fy = 0;
         this.weight = weight;
     }
     show() {
-        rect(this.x - this.w/2,this.y - this.h/2,this.w,this.h);
+        if (abs(this.fx) > this.z || abs(this.fy) > this.z || (abs(this.x - MOUSEX) <= 100*(1/this.z) && abs(this.y - MOUSEY) <= 100*(1/this.z))) {
+                rect(this.x - this.w/2,this.y - this.h/2,this.w,this.h);
+        }
+        //push();
+        //stroke(0);
+        //translate(this.x - this.w/2,this.y - this.h/2);
+        //plane(this.w,this.h);
+        //pop();
     }
     move(speed) {
 
@@ -144,11 +153,11 @@ function setup() {
 
     colors = [ color(37, 40, 61), color(76, 40, 88), color(7, 190, 184), color(236, 241, 243) ];
 
-    aboxes = new Boxes(diagonalLength/30,1.05,3000);
-    bboxes = new Boxes(diagonalLength/40,1.05,30000);
-    cboxes = new Boxes(diagonalLength/70,1.05,70000);
+    aboxes = new Boxes(diagonalLength/20,1.05,3000,1);
+    bboxes = new Boxes(diagonalLength/35,1.05,30000,0.25);
+    cboxes = new Boxes(diagonalLength/60,1.05,70000,0);
 
-    frameRate(120);
+    frameRate(60);
     noStroke();
     //blendMode(BURN);
 }
@@ -158,6 +167,8 @@ let ifMOUSEX, ifMOUSEY, MOUSEX, MOUSEY, ifMOUSEOVER = false;
 
 
 function draw() {
+
+    //translate(-width/2,-height/2);
 
     if(iframe.contentWindow.initialized != undefined) {
         ifMOUSEX = iframe.contentWindow.MOUSEX;
@@ -171,13 +182,13 @@ function draw() {
             MOUSEX = mouseX;
             MOUSEY = mouseY;
         }
-        print(MOUSEX, MOUSEY, ifMOUSEOVER, document.documentElement.scrollTop);
+        //print(MOUSEX, MOUSEY, ifMOUSEOVER, document.documentElement.scrollTop);
 
     } else {
-        print("shits fucked, yo");
+        print("i am broken");
     }
 
-    clear();
+    //clear();
     if (darkmode) {
         background(colors[3]);
         fill(colors[2]);
@@ -199,5 +210,6 @@ function draw() {
     aboxes.move(0.1);
     bboxes.move(0.1);
     cboxes.move(0.1);
+
 }
 
