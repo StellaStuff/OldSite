@@ -9,6 +9,7 @@ body { /* setting the font and spacing on the main body*/
     font-size: 150%;
     overflow: scroll;
     overflow-x: hidden;
+    color: rgb(37, 40, 61);
 }
 
 input {
@@ -119,7 +120,7 @@ iframe {
 .header {
     overflow: visible; /* makes sure there isnt a scroll bar on the header */
     text-align: center; /*centers the text*/
-    background-color: #f1f1f1dd;
+    background-color: rgba(236, 241, 243,80%);
     
     width: 100%; /*makes the header take up the whole width of the screen*/
     position: fixed; /*locks the header at the top of the screen*/
@@ -160,12 +161,10 @@ iframe {
     margin: 0;
     float: left;
     background-color: #00000000;
-    color: black;
     text-decoration: none;
     line-height: 1.4em;
     display: inline;
     font-size: 2em;
-    font-family: 'Righteous', cursive;
     margin-left: 0.5em;
 }
 
@@ -225,6 +224,5 @@ iframe {
         float: none;
         display: inline;
         font-size: 2em;
-        font-family: 'Righteous', cursive;
     }
 }

@@ -11,6 +11,8 @@
 .text {
     width: 45%;
     float: left;
+
+    padding:1em;
 }
 
 .guestbook {
