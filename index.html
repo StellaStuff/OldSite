@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+
+    <script src="assets/games/library/p5.js"></script>
 </head>
 
 <body>
@@ -20,7 +22,7 @@
                 </audio>
                 
                 <div class="progressbar">
-                    <p id="header-title-bar" class="title-bar">I am broken!</p>
+                    <p id="header-title-bar" class="title-bar">Loading...</p>
                     <input type="range" class="seeker" id="header-seeker" oninput="musicPlayer.seek()" step="0.25" value="0">
                     <input type="button" class="playPauseButton" id="header-playPauseButton" onclick="musicPlayer.playPause()" value="▶️">
                     <input type="button" class="playPauseButton" id="header-backButton" onclick="musicPlayer.back()" value="⏮️">
@@ -45,12 +47,13 @@
     <iframe src="home.html" id="main-iframe" name="iframe" scrolling="no"></iframe>
     
     <div class="footer">
-        <p>&copy; <script>document.write( new Date().getFullYear() );</script> Stella Wood</p>
+        <p>&copy; <script>document.write( new Date().getFullYear() );</script> <noscript>2022</noscript> Stella Wood</p>
         <p>all rights reserved</p>
     </div>
 </body>
 
 <foot>
+    <script src="demo.js"></script>
     <script src="index.js"></script>
 </foot>
 

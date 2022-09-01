@@ -1,28 +1,24 @@
 #portrait {
-    min-width: 10em;
-    width: 50%;
+    max-width: 30em;
+    width: 45%;
     
     float: right;
-    padding: 4%;
-    padding-top: 0;
-    padding-right: 0;
+    border-radius: 2em;
+    margin-bottom:1em;
+    border-style: solid;
+    border-color: rgba(7, 190, 184);
 }
 
 .text {
-    width: 45%;
-    float: left;
+    padding:1em;
 }
 
-.guestbook {
-    padding: 2em;
-    content: "";
-    clear: both;
-    display: table;
-}
-
-#guestbookborder {
+.box {
     width: 50%;
-    float: right;
+    margin:auto;
+    margin-bottom:1em;
+    float: left;
+
 }
 
 .input {
@@ -32,16 +28,17 @@
     display: table;
 }
 
-@media only screen and (max-width: 78em) {
+@media only screen and (max-width: 80em) {
     #portrait {
         padding-bottom: 0em;
         display: none;
     }
-    .text {
-        width: auto;
-        float: none;
+    .box {
+        width: 100%;
+        margin:0;
+        margin-bottom:1em;
     }
-    .guestbook {
+    .text {
         width: auto;
         float: none;
     }

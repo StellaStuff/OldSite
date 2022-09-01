@@ -111,7 +111,7 @@ class MusicPlayer { //main music player for the header
             this.volumeSlider.style.opacity = "100%";
             this.volumeSlider.style.pointerEvents = "auto";
             this.volumeSlider.style.transform =  "translate(0,0)"
-            this.volumeWindow.style.background = "#ddddddff";
+            this.volumeWindow.style.background = "rgba(7, 190, 184)";
             this.volumeWindowOpen = true;
         }
     }
@@ -183,14 +183,14 @@ function resizeIframe() {
 }
 
 //////////end of classes & large functions////////}
-preload(setup); ////pulls the script up by its bootstraps
+Mpreload(Msetup); ////pulls the script up by its bootstraps
 
 
 var page = "home";
 var musicData, playlist, gameData, musicPlayer, iframe;
 
 
-async function preload(callback) {
+async function Mpreload(callback) {
     temp = await fetch("assets/music/music.json").then(response => {return response.json();});
     
     playlist = [];
@@ -203,13 +203,15 @@ async function preload(callback) {
     
     
     iframe = document.getElementById("main-iframe");
+    //iframe.document.onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
+
     if (callback != undefined) callback();
 }
 
 
-function setup() {
+function Msetup() {
     musicPlayer.load(0);
-    setInterval(tick, 1000/2);
+    setInterval(Mtick, 1000/2);
     if (window.location.search != "") {
         var temp = window.location.search.split("&");
         
@@ -221,8 +223,8 @@ function setup() {
     }
 }
 
-function tick() {
-    musicPlayer.update(); //runs the update function 10 times a second
+function Mtick() {
+    musicPlayer.update(); //runs the update function every tick
     resizeIframe();
 }
 

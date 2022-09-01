@@ -1,11 +1,31 @@
 
 class Boxes {
-    constructor(size,w,h,weight) {
+    constructor(size,density,weight,Z) {
+        this.size = size;
+        this.density = density;
+        this.weight = weight;
+        this.z = Z;
+
         this.boxes = [];
+
+        var w = (width / size) * density;
+        var h = (height/ size) * density;
 
         for (var i = 0; i < w; i++) {
             for (var j = 0; j < h; j++) {
-                this.boxes.push(new box(i/w*width,j/h*height,size,weight));
+                this.boxes.push(new box(i/w*width,j/h*height,size,weight,Z));
+            }
+        }
+    }
+    resize() {
+        this.boxes = [];
+
+        var w = (width / this.size) * this.density;
+        var h = (height/ this.size) * this.density;
+
+        for (var i = 0; i < w; i++) {
+            for (var j = 0; j < h; j++) {
+                this.boxes.push(new box(i/w*width,j/h*height,this.size,this.weight,this.z));
             }
         }
     }
@@ -23,19 +43,27 @@ class Boxes {
 }
 
 class box {
-    constructor(x,y,size,weight) {
+    constructor(x,y,size,weight,z) {
         this.ox = x;
         this.oy = y;
         this.w = size;
         this.h = size;
         this.x = x;
         this.y = y;
+        this.z = z;
         this.fx = 0;
         this.fy = 0;
         this.weight = weight;
     }
     show() {
-        rect(this.x - this.w/2,this.y - this.h/2,this.w,this.h);
+        if (abs(this.fx) > this.z || abs(this.fy) > this.z || (abs(this.x - MOUSEX) <= 100*(1/this.z) && abs(this.y - MOUSEY) <= 100*(1/this.z))) {
+                rect(this.x - this.w/2,this.y - this.h/2,this.w,this.h);
+        }
+        //push();
+        //stroke(0);
+        //translate(this.x - this.w/2,this.y - this.h/2);
+        //plane(this.w,this.h);
+        //pop();
     }
     move(speed) {
 
@@ -44,8 +72,8 @@ class box {
         this.fy *= 0.9;
 
         //calculates the push from the mouse
-        var dx = this.x - mouseX;
-        var dy = this.y - mouseY;
+        var dx = this.x - MOUSEX;
+        var dy = this.y - MOUSEY;
 
         //avoids near zero issues
         if (dx < 10 && dx > -0.1) dx = 10;
@@ -93,43 +121,92 @@ class box {
         }
 
 
-        //print("butts"");
         //adds the speed to the position
         this.x += this.fx * speed;
         this.y += this.fy * speed;
-
-        //if (this.x > width + 100 || this.y > height + 100) print("fuck");
-
     }
 }
 
-let aboxes, bboxes, cboxes;
-function setup() {
-    createCanvas(1024,1024);
-    aboxes = new Boxes(width/50,55,55,3000);
-    bboxes = new Boxes(width/50,55,55,30000);
-    cboxes = new Boxes(width/50,55,55,70000);
+let colors = [];
 
-    frameRate(120);
+let aboxes, bboxes, cboxes;
+var darkmode = 0;
+
+function windowResized() {
+    resizeCanvas(windowWidth,windowHeight);
+    aboxes.resize();
+    bboxes.resize();
+    cboxes.resize();
+}
+
+function setup() {
+
+    canvas = createCanvas(windowWidth,windowHeight);
+    canvas.position(0,0);
+    canvas.style("z-index" , "-1");
+    canvas.style("position" , "fixed");
+
+    diagonalLength = sqrt(width*width + height*height);
+
+    colors = [ color(37, 40, 61), color(76, 40, 88), color(7, 190, 184), color(236, 241, 243) ];
+
+    aboxes = new Boxes(diagonalLength/20,1.05,3000,1);
+    bboxes = new Boxes(diagonalLength/35,1.05,30000,0.25);
+    cboxes = new Boxes(diagonalLength/60,1.05,70000,0);
+
+    frameRate(60);
     noStroke();
     //blendMode(BURN);
 }
+
+let ifMOUSEX, ifMOUSEY, MOUSEX, MOUSEY, ifMOUSEOVER = false;
 
 
 
 function draw() {
 
-    clear();
-    background(37, 40, 61);
-    fill(76, 40, 88);
-    aboxes.show();
-    fill(7, 190, 184);
-    bboxes.show();
-    fill(236, 241, 243);
-    cboxes.show();
+    //translate(-width/2,-height/2);
+
+    if(iframe.contentWindow.initialized != undefined) {
+        ifMOUSEX = iframe.contentWindow.MOUSEX;
+        ifMOUSEY = iframe.contentWindow.MOUSEY;
+        ifMOUSEOVER = iframe.contentWindow.MOUSEOVER;
+
+        if (ifMOUSEOVER) {
+            MOUSEX = ifMOUSEX + iframe.offsetLeft;
+            MOUSEY = ifMOUSEY + iframe.offsetTop - document.documentElement.scrollTop;
+        } else {
+            MOUSEX = mouseX;
+            MOUSEY = mouseY;
+        }
+        //print(MOUSEX, MOUSEY, ifMOUSEOVER, document.documentElement.scrollTop);
+
+    } else {
+        print("i am broken");
+    }
+
+    //clear();
+    if (darkmode) {
+        background(colors[3]);
+        fill(colors[2]);
+        aboxes.show();
+        fill(colors[1]);
+        bboxes.show();
+        fill(colors[0]);
+        cboxes.show();
+    } else {
+        background(colors[0]);
+        fill(colors[1]);
+        aboxes.show();
+        fill(colors[2]);
+        bboxes.show();
+        fill(colors[3]);
+        cboxes.show();
+    }
 
     aboxes.move(0.1);
     bboxes.move(0.1);
     cboxes.move(0.1);
+
 }
 
