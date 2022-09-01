@@ -25,7 +25,7 @@ class Boxes {
 
         for (var i = 0; i < w; i++) {
             for (var j = 0; j < h; j++) {
-                this.boxes.push(new box(i/w*width,j/h*height,this.size,this.weight));
+                this.boxes.push(new box(i/w*width,j/h*height,this.size,this.weight,this.z));
             }
         }
     }
@@ -121,12 +121,9 @@ class box {
         }
 
 
-        //print("butts"");
         //adds the speed to the position
         this.x += this.fx * speed;
         this.y += this.fy * speed;
-
-        //if (this.x > width + 100 || this.y > height + 100) print("fuck");
     }
 }
 

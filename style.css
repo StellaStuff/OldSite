@@ -10,6 +10,7 @@ body { /* setting the font and spacing on the main body*/
     overflow: scroll;
     overflow-x: hidden;
     color: rgb(37, 40, 61);
+
 }
 
 input {
@@ -32,6 +33,31 @@ iframe {
     margin: 0;
 }
 
+.box {
+    background: rgba(236, 241, 243,80%);
+    border-style: solid;
+    border-color: rgba(7, 190, 184);
+    border-radius: 2em;
+}
+
+.seeker {
+
+    -webkit-appearance: none;
+    border-style: solid;
+    border-color: rgba(7, 190, 184);
+    background-color: rgba(236, 241, 243,80%);
+    border-radius: 10px;
+}
+
+.seeker::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(76, 40, 88);
+    cursor: pointer;
+}
+
 /*///////////////////audio player stuff///////////////////////////*/
 .song {
     float: right;
@@ -47,7 +73,7 @@ iframe {
 
 .audioPlayer {
     float: right;
-    background-color: white;
+    background-color: rgba(236, 241, 243);
     border-radius: 1em;
     width: 20em;
     padding: 0.25em;
@@ -87,7 +113,6 @@ iframe {
 
 .volume-slider {
     display: inline;
-    background-color: #dd00;
     border-radius: 2em;
     padding: 0.25%;
     padding-right: 2%;
@@ -109,10 +134,7 @@ iframe {
     
 }
 
-.box {
-    background: #dddddd;
-    border-radius: 2em;
-}
+
 /*///////////////////end of audio player stuff///////////////////////////*/
 
 /*****************************************************header stuff****************************************************************************/
@@ -145,13 +167,13 @@ iframe {
 
 /* Change the background color on mouse-over */
 .tabs:hover {
-  background-color: #bbbbbb;
+  background-color: rgba(7, 190, 184,100%);
   color: black;
 }
 
 /* Style the active/current link*/
 .tabs.active {
-  background-color: #7099ff;
+  background-color: rgba(76, 40, 88);
   color: white;
 }
 
@@ -171,7 +193,7 @@ iframe {
 /* Style the header links */
 .tabs {
     border: none;
-    background-color: #dddddd;
+    background-color: rgba(7, 190, 184,40%);
     width:15%; /* width of the buttons */
     display:inline-block; /* makes them blocks so we can give them equal spacing regardless of text length */
     margin: 1%; /* space between buttons */

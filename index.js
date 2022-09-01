@@ -111,7 +111,7 @@ class MusicPlayer { //main music player for the header
             this.volumeSlider.style.opacity = "100%";
             this.volumeSlider.style.pointerEvents = "auto";
             this.volumeSlider.style.transform =  "translate(0,0)"
-            this.volumeWindow.style.background = "#ddddddff";
+            this.volumeWindow.style.background = "rgba(7, 190, 184)";
             this.volumeWindowOpen = true;
         }
     }
