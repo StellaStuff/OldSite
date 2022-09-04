@@ -16,7 +16,7 @@ class GameThumbnail {
 
 const gameTemplate = `
 <div class="box">
-    <div class='game' id='gameID' onclick='parent.changePage("games",false,false,"GAMESRC")')> 
+    <div class='game' id='gameID' onclick='parent.changePage("games",false,false,"GAMESRC",false)')>
         <img src='THUMBNAILSRC' class='thumbnail'>
         <h3>GAMETITLE</h3>
         <p>GAMEDISCRIPTION</p>

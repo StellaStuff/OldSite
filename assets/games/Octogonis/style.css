@@ -11,6 +11,7 @@ html, body {
 }
 canvas {
   display: block;
+  padding: 1em;
 }
 
 button {
@@ -22,6 +23,10 @@ button {
   font-size: 20px;
 }
 
+.box {
+  width: auto;
+  padding: auto;
+}
 
 .slider {
 

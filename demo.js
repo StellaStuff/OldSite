@@ -11,8 +11,8 @@ class Boxes {
         var w = (width / size) * density;
         var h = (height/ size) * density;
 
-        for (var i = 0; i < w; i++) {
-            for (var j = 0; j < h; j++) {
+        for (var i = 0; i < w + 1; i++) {
+            for (var j = 0; j < h + 1; j++) {
                 this.boxes.push(new box(i/w*width,j/h*height,size,weight,Z));
             }
         }
@@ -23,8 +23,8 @@ class Boxes {
         var w = (width / this.size) * this.density;
         var h = (height/ this.size) * this.density;
 
-        for (var i = 0; i < w; i++) {
-            for (var j = 0; j < h; j++) {
+        for (var i = 0; i < w + 1; i++) {
+            for (var j = 0; j < h + 1; j++) {
                 this.boxes.push(new box(i/w*width,j/h*height,this.size,this.weight,this.z));
             }
         }
@@ -59,11 +59,6 @@ class box {
         if (abs(this.fx) > this.z || abs(this.fy) > this.z || (abs(this.x - MOUSEX) <= 100*(1/this.z) && abs(this.y - MOUSEY) <= 100*(1/this.z))) {
                 rect(this.x - this.w/2,this.y - this.h/2,this.w,this.h);
         }
-        //push();
-        //stroke(0);
-        //translate(this.x - this.w/2,this.y - this.h/2);
-        //plane(this.w,this.h);
-        //pop();
     }
     move(speed) {
 
@@ -131,6 +126,7 @@ let colors = [];
 
 let aboxes, bboxes, cboxes;
 var darkmode = 0;
+var backgroundEnabled = true;
 
 function windowResized() {
     resizeCanvas(windowWidth,windowHeight);
@@ -150,9 +146,9 @@ function setup() {
 
     colors = [ color(37, 40, 61), color(76, 40, 88), color(7, 190, 184), color(236, 241, 243) ];
 
-    aboxes = new Boxes(diagonalLength/20,1.05,3000,1);
-    bboxes = new Boxes(diagonalLength/35,1.05,30000,0.25);
-    cboxes = new Boxes(diagonalLength/60,1.05,70000,0);
+    aboxes = new Boxes(diagonalLength/15,1.05,3000,1);
+    bboxes = new Boxes(diagonalLength/25,1.05,30000,0.25);
+    cboxes = new Boxes(diagonalLength/30,1.05,70000,0);
 
     frameRate(60);
     noStroke();
@@ -164,49 +160,54 @@ let ifMOUSEX, ifMOUSEY, MOUSEX, MOUSEY, ifMOUSEOVER = false;
 
 
 function draw() {
+    if (backgroundEnabled) {
 
-    //translate(-width/2,-height/2);
+        if(iframe.contentWindow.initialized != undefined) {
+            ifMOUSEX = iframe.contentWindow.MOUSEX;
+            ifMOUSEY = iframe.contentWindow.MOUSEY;
+            ifMOUSEOVER = iframe.contentWindow.MOUSEOVER;
 
-    if(iframe.contentWindow.initialized != undefined) {
-        ifMOUSEX = iframe.contentWindow.MOUSEX;
-        ifMOUSEY = iframe.contentWindow.MOUSEY;
-        ifMOUSEOVER = iframe.contentWindow.MOUSEOVER;
+            if (ifMOUSEOVER) {
+                MOUSEX = ifMOUSEX + iframe.offsetLeft;
+                MOUSEY = ifMOUSEY + iframe.offsetTop - document.documentElement.scrollTop;
+            } else {
+                MOUSEX = mouseX;
+                MOUSEY = mouseY;
+            }
+            //print(MOUSEX, MOUSEY, ifMOUSEOVER, document.documentElement.scrollTop);
 
-        if (ifMOUSEOVER) {
-            MOUSEX = ifMOUSEX + iframe.offsetLeft;
-            MOUSEY = ifMOUSEY + iframe.offsetTop - document.documentElement.scrollTop;
         } else {
-            MOUSEX = mouseX;
-            MOUSEY = mouseY;
+            print("i am broken");
         }
-        //print(MOUSEX, MOUSEY, ifMOUSEOVER, document.documentElement.scrollTop);
 
+        //clear();
+        if (darkmode) {
+            background(colors[3]);
+            fill(colors[2]);
+            aboxes.show();
+            fill(colors[1]);
+            bboxes.show();
+            fill(colors[0]);
+            cboxes.show();
+        } else {
+            background(colors[0]);
+            fill(colors[1]);
+            aboxes.show();
+            fill(colors[2]);
+            bboxes.show();
+            fill(colors[3]);
+            cboxes.show();
+        }
+
+        aboxes.move(0.1);
+        bboxes.move(0.1);
+        cboxes.move(0.1);
     } else {
-        print("i am broken");
+        if (darkmode) {
+            background(colors[0]);
+        } else {
+            background(colors[3]);
+        }
     }
-
-    //clear();
-    if (darkmode) {
-        background(colors[3]);
-        fill(colors[2]);
-        aboxes.show();
-        fill(colors[1]);
-        bboxes.show();
-        fill(colors[0]);
-        cboxes.show();
-    } else {
-        background(colors[0]);
-        fill(colors[1]);
-        aboxes.show();
-        fill(colors[2]);
-        bboxes.show();
-        fill(colors[3]);
-        cboxes.show();
-    }
-
-    aboxes.move(0.1);
-    bboxes.move(0.1);
-    cboxes.move(0.1);
-
 }
 
