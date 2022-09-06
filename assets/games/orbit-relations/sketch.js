@@ -5,7 +5,8 @@ let pg1;
 let pg2;
 
 function setup() {
-  createCanvas(500, 500);
+  canvas = createCanvas(500, 500);
+  canvas.parent("canvas");
   pg1 = createGraphics(width,height);
   pg2 = createGraphics(width,height);
 }
