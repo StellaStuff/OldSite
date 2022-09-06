@@ -157,6 +157,8 @@ function changePage(Page, noPush, noRefresh, SubPage) {
         if (!noRefresh) {
             document.getElementsByTagName("iframe")[0].contentDocument.location.replace("assets/" + Page + "/" + SubPage + "/" + "index.html");
         }
+        backgroundEnabled = false;
+        document.getElementsByClassName("header")[0].style.position = "relative";
     } else {
         if (!noPush) {
             history.pushState(Page, '', "?" + Page);
@@ -167,6 +169,8 @@ function changePage(Page, noPush, noRefresh, SubPage) {
         if (!noRefresh) {
             document.getElementsByTagName("iframe")[0].contentDocument.location.replace(Page + ".html");
         }
+        backgroundEnabled = true;
+        document.getElementsByClassName("header")[0].style.position = "fixed";
     }
     
     
@@ -174,6 +178,7 @@ function changePage(Page, noPush, noRefresh, SubPage) {
     
     subpage = SubPage;
     page = Page;
+
 }
 
 function resizeIframe() {

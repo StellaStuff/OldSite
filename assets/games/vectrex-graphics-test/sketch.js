@@ -3,8 +3,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400);
-
+  canvas = createCanvas(400, 400);
+  canvas.parent("canvas");
   print(models);
 }
 var t = 0;

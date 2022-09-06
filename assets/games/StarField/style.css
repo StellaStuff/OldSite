@@ -2,6 +2,12 @@ html, body {
   margin: 0;
   padding: 0;
 }
+.box {
+  width: auto;
+  padding: auto;
+}
 canvas {
   display: block;
+  padding: 1em;
 }
+

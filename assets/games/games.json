@@ -54,12 +54,6 @@
             "artsrc":"/assets/images/synth.jpg",
             "blerb":"this is a really simple game where you have to guess the rgb values of the color on screen"
         },
-        "Sprite-Editor":{
-            "name":"Sprite Editor",
-            "src":"Sprite-Editor",
-            "artsrc":"/assets/images/synth.jpg",
-            "blerb":"this is a really simple pixelart editor I made in highschool, I didnt even know how to use classes yet"
-        },
         "orbit-relations":{
             "name":"Orbit Relation Visualizer",
             "src":"orbit-relations",
