@@ -11,7 +11,7 @@ function setup() {
   tuneingtext.position(0, height - 10);
 
 
-  volume = createSlider(0, 0.5, 0.1, 0.001);
+  volume = createSlider(0, 0.5, 0, 0.001);
   volume.addClass("slider");
   volume.parent("canvas");
   volume.position(-5, height + 90);
