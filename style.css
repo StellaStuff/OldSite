@@ -218,6 +218,24 @@ iframe {
     margin: 1em;
 }
 
+/*
+ * disabled because i am unnable to test it properly i guess. and most people use dark reader which i dont think supports this
+@media (prefers-color-scheme: dark) { /*dark mode
+    body {
+        color: yellow;
+        border: green;
+        background: magenta;
+    }
+    .box {
+        color: yellow;
+        border: green;
+        background: magenta;
+    }
+    .seeker {
+
+    }
+}*/
+
 @media screen and (max-width: 81em) { /*responsive effects for smaller screens*/
     .audioPlayer {
         float: none;

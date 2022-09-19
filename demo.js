@@ -146,6 +146,12 @@ function setup() {
 
     colors = [ color(37, 40, 61), color(76, 40, 88), color(7, 190, 184), color(236, 241, 243) ];
 
+    /*if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // dark mode
+        colors = colors.reverse();
+        print("dark mode!");
+    }*/
+
     aboxes = new Boxes(diagonalLength/15,1.05,3000,1);
     bboxes = new Boxes(diagonalLength/25,1.05,30000,0.25);
     cboxes = new Boxes(diagonalLength/30,1.05,70000,0);
