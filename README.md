@@ -1,4 +1,4 @@
 # StellaStuff.Design
-my main online buisness card!
+My gay ass website
 
-this serves as an online portfolio for my creations!
+fuck you
